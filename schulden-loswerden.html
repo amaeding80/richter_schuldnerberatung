@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schulden loswerden München | Tino Richter Schuldnerberatung</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Schulden loswerden in München – Tino Richter zeigt den Weg. Überblick, außergerichtliche Einigung oder Insolvenz: Ich begleite Sie bis zur Schuldenfreiheit. Kostenlose Erstberatung.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    :root { --dark: #100d0b; --navy: #0d1f3c; --amber: #c4a06a; --amber-h: #a8875a; --steel: #64748b; --border: #e2e8f0; --bg: #f6f8fc; --text: #1e293b; --white: #ffffff; --max: 1140px; --r: 12px; }
+    h1, h2, h3, h4 { line-height: 1.15; font-weight: 800; }
+    a { text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .9rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: .93rem; cursor: pointer; text-decoration: none; transition: all .2s; border: none; }
+    .btn-primary { background: var(--amber); color: #fff; }
+    .btn-primary:hover { background: var(--amber-h); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,160,106,.35); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.3); }
+    .btn-outline:hover { background: rgba(255,255,255,.07); }
+    .btn-wa { background: #fff; color: var(--navy); border: 2px solid rgba(13,31,60,.15); }
+    .btn-wa:hover { background: var(--bg); transform: translateY(-1px); }
+    .sec-tag { display: inline-block; background: var(--navy); color: rgba(255,255,255,.72); font-size: .71rem; font-weight: 700; padding: .28rem .85rem; border-radius: 100px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: .85rem; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12,9,7,.97); backdrop-filter: blur(18px); height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo-mark { width: 32px; height: 32px; background: var(--amber); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-logo-text { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.2; }
+    .nav-logo-text span { display: block; color: rgba(255,255,255,.38); font-size: .68rem; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.6); font-size: .85rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--dark); z-index: 999; padding: 1.5rem 2rem 2rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mob-menu.open { display: block; }
+    .mob-menu a { display: block; color: rgba(255,255,255,.75); padding: .85rem 0; font-size: .95rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mob-menu .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+    .page-hero { background: linear-gradient(150deg, #0f0c0a 0%, #1c1410 45%, #0d1f3c 100%); padding: 120px 0 64px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 600px 400px at 80% 50%, rgba(196,160,106,.05) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(196,160,106,.12); border: 1px solid rgba(196,160,106,.25); color: rgba(251,191,36,.85); padding: .32rem .85rem; border-radius: 100px; font-size: .7rem; font-weight: 700; letter-spacing: .07em; margin-bottom: 1.1rem; }
+    .page-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-bottom: 1rem; letter-spacing: -.03em; }
+    .page-hero h1 em { font-style: normal; color: var(--amber); }
+    .page-hero p { color: rgba(255,255,255,.52); font-size: .97rem; max-width: 560px; line-height: 1.85; margin-bottom: 1.75rem; }
+    .page-hero p strong { color: rgba(255,255,255,.82); font-weight: 600; }
+    .page-hero-actions { display: flex; gap: .85rem; flex-wrap: wrap; }
+    .page-breadcrumb { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.25rem; }
+    .page-breadcrumb a, .page-breadcrumb span { color: rgba(255,255,255,.3); font-size: .78rem; }
+    .page-breadcrumb .current { color: rgba(255,255,255,.55); }
+
+    #strip { background: var(--navy); padding: 1.15rem 0; }
+    .strip-items { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .strip-item { display: flex; align-items: center; gap: .55rem; color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; white-space: nowrap; }
+    .strip-item svg { width: 13px; height: 13px; fill: var(--amber); flex-shrink: 0; }
+    .strip-dot { width: 1px; height: 18px; background: rgba(255,255,255,.15); }
+
+    #content { padding: 5.5rem 0; background: #fff; }
+    .content-grid { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: start; }
+    .content-body h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--dark); letter-spacing: -.025em; margin-bottom: 1rem; margin-top: 3rem; }
+    .content-body h2:first-child { margin-top: 0; }
+    .content-body p { color: var(--steel); font-size: .93rem; line-height: 1.85; margin-bottom: 1rem; }
+    .content-body strong { color: var(--text); }
+
+    .step-card { background: var(--bg); border-radius: var(--r); border: 1px solid var(--border); padding: 1.75rem; margin-bottom: 1.25rem; position: relative; }
+    .step-num { width: 42px; height: 42px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; font-size: .95rem; font-weight: 900; color: #fff; margin-bottom: 1.1rem; }
+    .step-card h3 { font-size: 1rem; color: var(--dark); margin-bottom: .6rem; margin-top: 0; }
+    .step-card p { margin-bottom: 0; color: var(--steel); font-size: .92rem; line-height: 1.8; }
+
+    .ablauf-note { background: rgba(196,160,106,.07); border: 1px solid rgba(196,160,106,.22); border-radius: var(--r); padding: 1.5rem 1.75rem; margin-top: 2rem; }
+    .ablauf-note p { color: var(--text); font-size: .9rem; line-height: 1.8; margin-bottom: 0; }
+    .ablauf-note strong { color: var(--dark); }
+
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-box { background: var(--dark); border-radius: 16px; padding: 2rem; margin-bottom: 1.25rem; }
+    .sidebar-box h3 { color: #fff; font-size: 1rem; margin-bottom: .5rem; }
+    .sidebar-box p { color: rgba(255,255,255,.45); font-size: .82rem; line-height: 1.7; margin-bottom: 1.25rem; }
+    .sidebar-box .btn { width: 100%; justify-content: center; margin-bottom: .65rem; }
+    .sidebar-links { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .sidebar-links h4 { font-size: .78rem; color: var(--steel); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; }
+    .sidebar-links a { display: flex; align-items: center; gap: .5rem; color: var(--text); font-size: .85rem; font-weight: 600; padding: .55rem 0; border-bottom: 1px solid var(--border); transition: color .15s; }
+    .sidebar-links a:last-child { border-bottom: none; }
+    .sidebar-links a:hover { color: var(--amber); }
+    .sidebar-links a svg { width: 14px; height: 14px; fill: var(--amber); flex-shrink: 0; }
+
+    #cta-strip { background: var(--dark); padding: 4rem 0; }
+    .cta-grid { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+    .cta-grid h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); color: #fff; letter-spacing: -.025em; margin-bottom: .5rem; }
+    .cta-grid p { color: rgba(255,255,255,.4); font-size: .9rem; line-height: 1.7; }
+    .cta-btns { display: flex; flex-direction: column; gap: .75rem; flex-shrink: 0; }
+    .cta-btns .btn { justify-content: center; white-space: nowrap; }
+
+    footer { background: #040c16; padding: 1.75rem 2rem; border-top: 1px solid rgba(255,255,255,.04); }
+    .foot-in { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-copy { color: rgba(255,255,255,.6); font-size: .77rem; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { color: rgba(255,255,255,.6); font-size: .76rem; transition: color .15s; }
+    .foot-links a:hover { color: rgba(255,255,255,.5); }
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,.18); transition: transform .2s; text-decoration: none; border: 1px solid rgba(0,0,0,.08); }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,.22); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    @media (max-width: 1023px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .cta-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767px) {
+      nav { height: 56px; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .page-hero { padding: 88px 0 44px; }
+      .page-hero h1 { font-size: 1.85rem; }
+      .page-hero-actions { flex-direction: column; }
+      .page-hero-actions .btn { width: 100%; justify-content: center; }
+      .strip-dot { display: none; }
+      #content { padding: 3.5rem 0; }
+      .cta-btns .btn { width: 100%; }
+      .foot-in { flex-direction: column; text-align: center; }
+      .foot-links { justify-content: center; }
+      .mob-menu { top: 56px; }
+      .container { padding: 0 1.25rem; }
+      .foot-links { flex-wrap: wrap; gap: .6rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="index.html" onclick="closeMenu()">Startseite</a>
+  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span>›</span>
+      <span class="current">Schulden loswerden</span>
+    </div>
+    <div class="page-hero-badge"><span style="width:5px;height:5px;border-radius:50%;background:var(--amber);display:inline-block;"></span>Individuelle Lösungen seit 2012</div>
+    <h1>Schulden loswerden – <em>ich zeige den Weg.</em></h1>
+    <p>Es gibt immer einen Weg raus. Ich kenne ihn. Menschen geraten aus den unterschiedlichsten Gründen in die Schuldenfalle – <strong>was zählt, ist der erste Schritt heraus.</strong></p>
+    <div class="page-hero-actions">
+      <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
+    </div>
+  </div>
+</div>
+
+<div id="strip">
+  <div class="container">
+    <div class="strip-items">
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Individuelle Lösungen</div>
+      <div class="strip-dot"></div>
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Seit 2012 in München</div>
+      <div class="strip-dot"></div>
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Absolut diskret</div>
+    </div>
+  </div>
+</div>
+
+<section id="content">
+  <div class="container">
+    <div class="content-grid">
+      <div class="content-body">
+        <div class="sec-tag">Schuldenfreiheit</div>
+        <h2 style="margin-top:.5rem;">Es gibt immer einen Weg.</h2>
+        <p>Ob Überziehungskredit, Konsumschulden, Mietschulden oder ein geplatztes Unternehmen – die Ursachen von Schulden sind vielfältig. Aber die Lösung folgt immer demselben Prinzip: erst Überblick schaffen, dann handeln. Ich gehe diesen Weg gemeinsam mit Ihnen.</p>
+
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Überblick schaffen</h3>
+          <p>Im ersten Schritt verschaffe ich mir gemeinsam mit Ihnen einen vollständigen Überblick: alle Schulden, alle Gläubiger, alle Optionen. Viele Menschen wissen gar nicht, wie viel oder wie wenig sie wirklich schulden – dieser Überblick allein ist bereits ein erster Befreiungsschlag.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Außergerichtliche Einigung</h3>
+          <p>In den meisten Fällen lässt sich ohne Insolvenz eine Lösung finden. Ich verhandle mit Ihren Gläubigern, erarbeite realistische Tilgungspläne und übernehme den gesamten Schriftverkehr. Sie müssen nicht mehr ans Telefon gehen oder Briefe fürchten.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Insolvenz als letztes Mittel</h3>
+          <p>Wenn nichts anderes hilft, ist die Privatinsolvenz kein Versagen – sondern ein geordneter Neuanfang. Nach 3 Jahren schuldenfrei, mit einem klaren rechtlichen Rahmen und meiner Begleitung durch das gesamte Verfahren. Viele Menschen bereuen, nicht früher diesen Schritt gegangen zu sein.</p>
+        </div>
+
+        <div class="ablauf-note">
+          <p><strong>Keine falsche Scheu:</strong> Das erste Gespräch kostet nichts und verpflichtet zu nichts. Ihre Existenzsicherung hat Priorität.</p>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <h3>Kostenlose Erstberatung</h3>
+          <p>Ich höre Ihnen zu, schaue mir Ihre Situation an und sage Ihnen ehrlich, was ich für Sie tun kann. Kein Amt, kein Formular, keine Wartezeit.</p>
+          <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
+        </div>
+        <div class="sidebar-links">
+          <h4>Weitere Themen</h4>
+          <a href="leistungen.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Alle Leistungen</a>
+          <a href="privatinsolvenz.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Privatinsolvenz</a>
+          <a href="pfaendung.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Pfändung – was jetzt?</a>
+          <a href="pfaendungsrechner.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Pfändungsrechner</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-strip">
+  <div class="container">
+    <div class="cta-grid">
+      <div>
+        <h2>Melden genügt. Den Rest übernehme ich.</h2>
+        <p>Kein langes Vorgespräch, keine Unterlagen vorab nötig. Ich schaue mir Ihren Fall an und sage Ihnen direkt, was geht.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="terminbuchung.html" class="btn btn-primary">Kostenloser Ersttermin</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <p class="foot-copy">© 2026 Tino Richter · Schuldnerberatung München</p>
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    
+      <span style="color:rgba(255,255,255,.12);font-size:.72rem;">·</span>
+  <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="color:rgba(255,255,255,.25);font-size:.72rem;">Webseite von</span><a href="#" onclick="window.open('https://wa.me/4917643433973?text=Hallo%20Alexander%2C%20ich%20habe%20Interesse%20an%20einer%20Websiteerstellung%20f%C3%BCr%20','_blank');return false;" style="color:rgba(255,255,255,.25);font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.25);flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Alexander Mäding</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1c1410"/>
+        <stop offset="100%" stop-color="#0d1f3c"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#wa-grad)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() { document.getElementById('mob-menu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mob-menu').classList.remove('open'); }
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mob-menu');
+    const nav = document.getElementById('nav');
+    if (menu.classList.contains('open') && !nav.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('open');
+  });
+</script>
+</body>
+</html>

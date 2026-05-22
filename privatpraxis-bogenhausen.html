@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privatpraxis Bogenhausen – Dr. Gerhard & Luis Fischer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-padding-top: 64px; }
+
+    :root {
+      --navy:     #1B2B4B;
+      --gold:     #C4A265;
+      --gold-lt:  #D0B07A;
+      --offwhite: #F5F2EC;
+      --white:    #FFFFFF;
+      --txt:      #2C2C2C;
+      --txt-mid:  #5A5A5A;
+      --rule:     rgba(0,0,0,0.07);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { font-family: 'Inter', sans-serif; background: var(--offwhite); color: var(--txt); -webkit-font-smoothing: antialiased; overflow-x: hidden; max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--navy);
+      height: 64px;
+      display: flex; align-items: center;
+      padding: 0 56px;
+      justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 0.95rem; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.76rem; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-phone { color: var(--gold) !important; letter-spacing: 0.5px !important; text-transform: none !important; font-size: 0.82rem !important; font-weight: 600 !important; }
+    .nav-phone:hover { color: var(--gold-lt) !important; }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 7px 18px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+
+    /* ── HERO – compact, text-focused ── */
+    .hero {
+      background: var(--navy);
+      background-image: url('Steffen%20Blau%202000x600.jpg');
+      background-size: cover;
+      background-position: center top;
+      padding: 72px 56px 68px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(27,43,75,0.92) 50%, rgba(27,43,75,0.6) 100%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 620px; position: relative; z-index: 1; }
+    .eyebrow {
+      color: var(--gold); font-size: 0.66rem; letter-spacing: 3px;
+      text-transform: uppercase; font-weight: 500; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+    .hero h1 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 2.85rem; line-height: 1.2; margin-bottom: 16px; font-weight: 700; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub { color: rgba(255,255,255,0.55); font-size: 1.0rem; line-height: 1.75; margin-bottom: 28px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--navy); padding: 11px 26px; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; transition: background .2s; }
+    .btn-primary:hover { background: var(--gold-lt); }
+    .btn-outline { display: inline-block; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); padding: 11px 26px; text-decoration: none; font-size: 0.72rem; letter-spacing: 1.6px; text-transform: uppercase; transition: all .2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── STRIPE ── */
+    .stripe {
+      background: var(--gold);
+      padding: 13px 56px;
+      display: none; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+    }
+    @media (min-width: 1200px) {
+      .stripe { display: flex; }
+    }
+    .stripe-item { color: var(--navy); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; display: flex; align-items: center; gap: 7px; }
+    .stripe-sep { width: 1px; height: 14px; background: rgba(27,43,75,0.2); }
+
+    /* ── TEAM ── */
+    .section-label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--navy); font-weight: 700; line-height: 1.22; }
+    .section-title.light { color: var(--white); }
+
+    .team-title { font-size: 1.7rem; white-space: nowrap; }
+    .section-team { background: var(--offwhite); padding-bottom: 40px; }
+    .team-header { text-align: center; padding: 30px 56px 20px; }
+    .team-header p { color: var(--txt-mid); margin-top: 10px; font-size: 0.86rem; line-height: 1.65; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+    /* ── TEAM CARDS ── */
+    .team-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1380px; margin: 0 auto; padding: 0 40px; }
+    .team-card { background: var(--white); overflow: hidden; border-radius: 6px; box-shadow: 0 4px 24px rgba(196,162,101,0.18); }
+    .card-photo { height: 220px; width: 100%; background-size: cover; background-repeat: no-repeat; }
+    .card-body { padding: 20px 24px 18px; display: flex; flex-direction: column; }
+    .card-top { overflow: hidden; }
+    .card-body .profile-contact { margin-top: auto; flex-wrap: nowrap; }
+
+    .profile-eyebrow { font-size: 0.61rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 5px; }
+    .profile-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); font-weight: 600; line-height: 1.2; margin-bottom: 2px; display: flex; align-items: flex-start; }
+    .profile-role { font-size: 0.67rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--txt-mid); margin-bottom: 10px; }
+    .profile-rule { width: 24px; height: 1px; background: var(--gold); margin-bottom: 10px; }
+    .profile-bio { color: var(--txt-mid); font-size: 0.9rem; line-height: 1.68; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+    .services-title { font-size: 0.60rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 7px; }
+    .service-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+    .service-list li { display: flex; align-items: flex-start; gap: 6px; padding: 3px 0; font-size: 0.83rem; color: var(--txt); border-bottom: 1px solid var(--rule); }
+    .service-list li:nth-last-child(-n+2) { border-bottom: none; }
+    .service-list li::before { content: ''; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .profile-contact { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap; }
+    .profile-contact a { color: var(--txt-mid); text-decoration: none; font-size: 0.75rem; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .profile-contact a:hover { color: var(--navy); }
+    .profile-contact a svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ── TESTIMONIALS ── */
+    .section-testimonials { background: var(--white); padding: 72px 56px; }
+    .testimonials-header { text-align: center; margin-bottom: 48px; }
+    .testimonials-header p { color: var(--txt-mid); margin-top: 12px; font-size: 0.88rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1040px; margin: 0 auto; }
+    .testimonial-card { background: var(--offwhite); border-radius: 6px; padding: 36px 32px 32px; box-shadow: 0 4px 24px rgba(196,162,101,0.12); display: flex; flex-direction: column; }
+    .testimonial-stars { display: flex; gap: 3px; margin-bottom: 20px; }
+    .testimonial-stars svg { color: var(--gold); }
+    .testimonial-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.98rem; color: var(--navy); line-height: 1.72; flex: 1; margin-bottom: 24px; }
+    .testimonial-rule { width: 24px; height: 1px; background: var(--gold); margin-bottom: 16px; }
+    .testimonial-patient { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: var(--gold); font-size: 0.82rem; font-weight: 600; flex-shrink: 0; }
+    .testimonial-name { font-size: 0.74rem; font-weight: 600; color: var(--navy); letter-spacing: 0.4px; }
+    .testimonial-detail { font-size: 0.67rem; color: var(--txt-mid); margin-top: 2px; }
+
+    /* ── BENEFITS ── */
+    .section-benefits { background: var(--navy); padding: 64px 56px; }
+    .benefits-header { text-align: center; margin-bottom: 44px; }
+    .benefits-header p { color: rgba(255,255,255,0.5); margin-top: 14px; font-size: 0.9rem; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 960px; margin: 0 auto; }
+    .benefit { text-align: center; padding: 44px 28px; background: rgba(255,255,255,0.03); border-radius: 6px; transition: background .3s; }
+    .benefit:hover { background: rgba(255,255,255,0.07); }
+    .benefit-icon { width: 46px; height: 46px; border: 1px solid rgba(196,162,101,0.5); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
+    .benefit h3 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .benefit p { color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.75; text-align: justify; hyphens: auto; }
+
+    /* ── PHILOSOPHY ── */
+    .section-philosophy { padding: 52px 56px; background: var(--white); }
+    .philosophy-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+    .philosophy-quote-block { background: var(--navy); border-radius: 6px; padding: 36px 40px; position: relative; box-shadow: 0 6px 28px rgba(196,162,101,0.18); display: flex; flex-direction: column; justify-content: center; }
+    .philosophy-quote-block::before { display: none; }
+    .philosophy-quote-block blockquote { font-family: 'Inter', sans-serif; font-style: normal; font-weight: 300; font-size: 1.55rem; color: rgba(255,255,255,0.92); line-height: 1.65; margin-bottom: 28px; padding-top: 0; letter-spacing: 0.01em; }
+    .philosophy-quote-block blockquote::before { content: ''; display: block; width: 44px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+    .philosophy-quote-block .quote-attr { color: var(--gold); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; }
+    .philosophy-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: var(--offwhite); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+    .philosophy-photo-placeholder .initials-lg { width: 100px; height: 100px; border-radius: 50%; border: 1.5px solid var(--gold); background: rgba(196,162,101,0.08); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2rem; font-weight: 600; }
+    .philosophy-photo-placeholder span { color: var(--txt-mid); font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; }
+    .philosophy-text .section-title { margin-bottom: 20px; }
+    .gold-rule { width: 36px; height: 1px; background: var(--gold); margin: 12px 0 16px; }
+    .philosophy-text p { color: var(--txt-mid); font-size: 1.0rem; line-height: 1.8; margin-bottom: 14px; }
+    .philosophy-aside { background: var(--offwhite); padding: 44px; border-radius: 6px; box-shadow: 0 4px 20px rgba(196,162,101,0.15); }
+    .philosophy-aside blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.25rem; color: var(--navy); line-height: 1.55; margin-bottom: 20px; position: relative; padding-left: 20px; }
+    .philosophy-aside blockquote::before { content: '\201C'; font-size: 3.5rem; color: var(--gold); line-height: 0; position: absolute; top: 16px; left: -8px; font-style: normal; }
+    .quote-attr { color: rgba(0,0,0,0.35); font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* ── PROCESS ── */
+    .section-process { background: var(--offwhite); padding: 48px 56px 80px; }
+    .process-header { text-align: center; margin-bottom: 0; }
+    .process-header p { color: var(--txt-mid); margin-top: 12px; font-size: 0.88rem; }
+    .process-steps { display: flex; flex-direction: column; max-width: 460px; margin: 40px auto 0; }
+    .process-step { display: flex; flex-direction: row; gap: 32px; align-items: flex-start; padding-bottom: 64px; position: relative; }
+    .process-step:last-child { padding-bottom: 0; }
+    .process-step:first-child { margin-top: 40px; }
+    .process-step:first-child .process-text { position: relative; top: -20px; }
+    .process-step:nth-child(2) .process-text { position: relative; top: -20px; }
+    .process-step:last-child .process-text { position: relative; top: -20px; }
+    .process-step:not(:last-child)::after { content: ''; position: absolute; left: 31px; top: 32px; bottom: -32px; width: 1px; background: var(--gold); opacity: 0.4; }
+    .process-num { width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid var(--gold); background: var(--offwhite); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.2rem; font-weight: 600; margin: 0; position: relative; z-index: 1; flex-shrink: 0; }
+    .process-text { padding-top: 18px; }
+    .process-text h3 { font-family: 'Playfair Display', serif; font-size: 1.0rem; color: var(--navy); font-weight: 600; margin-bottom: 8px; text-align: left; }
+    .process-text p { color: var(--txt-mid); font-size: 0.88rem; line-height: 1.72; text-align: left; }
+
+    /* ── CONTACT ── */
+    .section-contact { padding: 28px 56px 36px; background: var(--white); }
+    .contact-inner { max-width: 1040px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .contact-left .section-title { margin-bottom: 16px; }
+    .info-block { margin-bottom: 12px; }
+    .info-label { font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2px; }
+    .info-value { color: var(--txt); font-size: 0.88rem; line-height: 1.5; }
+    .info-value a { color: var(--txt); text-decoration: none; transition: color .2s; }
+    .info-value a:hover { color: var(--navy); }
+    .contact-right { background: var(--navy); padding: 28px 32px; display: flex; flex-direction: column; justify-content: center; border-radius: 6px; box-shadow: 0 4px 24px rgba(196,162,101,0.18); }
+    .contact-right .section-title.light { margin-bottom: 12px; font-size: 1.45rem; }
+    .contact-right > p { color: rgba(255,255,255,0.55); font-size: 0.84rem; line-height: 1.65; margin-bottom: 18px; }
+    .hours-table { width: 100%; }
+    .hours-table tr td { padding: 5px 0; font-size: 0.82rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table td:last-child { text-align: right; color: rgba(255,255,255,0.42); }
+
+    /* ── GOOGLE REVIEWS ── */
+    .google-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1040px; margin: 40px auto 0; }
+    .google-review-card { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .google-review-header { display: flex; align-items: center; gap: 12px; }
+    .google-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 600; color: var(--white); flex-shrink: 0; }
+    .google-reviewer-name { font-size: 0.85rem; font-weight: 600; color: #202124; }
+    .google-reviewer-meta { font-size: 0.72rem; color: #70757a; margin-top: 1px; }
+    .google-stars { display: flex; gap: 1px; }
+    .google-stars svg { color: #FBBC04; }
+    .google-review-text { font-size: 0.85rem; color: #3c4043; line-height: 1.65; flex: 1; }
+    .google-review-footer { display: flex; align-items: center; gap: 6px; }
+    .google-g-logo { width: 16px; height: 16px; }
+    .google-review-source { font-size: 0.68rem; color: #70757a; }
+
+    /* ── GOOGLE BADGE ── */
+    .google-badge { display: inline-flex; align-items: center; gap: 16px; background: var(--white); border: 1px solid rgba(0,0,0,0.09); border-radius: 10px; padding: 14px 22px; margin-top: 22px; text-decoration: none; transition: box-shadow .2s; }
+    .google-badge:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
+    .google-logo { width: 28px; height: 28px; flex-shrink: 0; }
+    .google-badge-text { text-align: left; }
+    .google-badge-rating { font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .google-badge-stars { display: flex; gap: 2px; margin-bottom: 3px; }
+    .google-badge-stars svg { color: #FBBC04; }
+    .google-badge-label { font-size: 0.68rem; color: var(--txt-mid); letter-spacing: 0.3px; }
+
+    /* ── MAP BUTTON ── */
+    .btn-maps { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(0,0,0,0.12); color: var(--txt-mid); background: var(--white); padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.75rem; font-weight: 500; transition: all .2s; margin-top: 6px; }
+    .btn-maps:hover { border-color: var(--gold); color: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer { background: #111d33; padding: 24px 56px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.75); font-size: 0.88rem; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.3); text-decoration: none; font-size: 0.73rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { color: rgba(255,255,255,0.28); font-size: 0.73rem; }
+
+    /* ── DESKTOP OVERRIDES ── */
+    @media (min-width: 900px) {
+      .hero { background-position: 62% 55%; }
+    }
+
+    /* ── TABLET (768px – 1023px) ── */
+    @media (max-width: 1023px) {
+      nav { padding: 0 28px; }
+      .nav-links { gap: 18px; }
+      .nav-links li:nth-child(1),
+      .nav-links li:nth-child(2),
+      .nav-links li:nth-child(3),
+      .nav-links li:nth-child(4) { display: none; }
+      .hero { padding: 56px 32px 52px; }
+      .hero h1 { font-size: 2.3rem; }
+      .team-header { padding: 28px 32px 16px; }
+      .team-cards { padding: 0 28px; gap: 20px; }
+      .section-testimonials { padding: 56px 32px; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .section-benefits { padding: 56px 32px; }
+      .benefits-grid { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+      .section-philosophy { padding: 48px 32px; }
+      .philosophy-inner { gap: 32px; }
+      .section-process { padding: 40px 32px 60px; }
+      .section-contact { padding: 28px 32px 36px; }
+      .google-reviews-grid { grid-template-columns: 1fr 1fr; padding: 0; }
+      footer { padding: 20px 28px; }
+    }
+
+    /* ── MOBILE (max 767px / iPhone) ── */
+    @media (max-width: 767px) {
+      /* NAV */
+      nav { padding: 0 20px; height: 52px; }
+      .nav-logo { font-size: 0.78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 160px; }
+      .nav-links li:nth-child(1),
+      .nav-links li:nth-child(2),
+      .nav-links li:nth-child(3),
+      .nav-links li:nth-child(4) { display: none; }
+      .nav-links { gap: 8px; }
+      .nav-phone { display: none !important; }
+      .nav-cta { padding: 7px 14px; font-size: 0.68rem !important; }
+
+      /* HERO */
+      .hero { padding: 44px 20px 40px; min-height: 320px; }
+      .hero h1 { font-size: 1.75rem; line-height: 1.25; }
+      .hero-sub { font-size: 0.88rem; margin-bottom: 24px; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .btn-primary, .btn-outline { text-align: center; padding: 14px 20px; font-size: 0.68rem; }
+
+
+
+      /* SECTION TITLES – einheitlich auf Mobile */
+      .section-title { font-size: 1.15rem; }
+      .team-title { font-size: 1.15rem !important; white-space: normal !important; line-height: 1.3; }
+
+      /* TEAM */
+      .team-header { padding: 24px 20px 14px; }
+      .team-header p { font-size: 0.82rem; }
+      .team-cards { grid-template-columns: 1fr; padding: 0 16px; }
+      .card-body { padding: 16px 18px 16px; }
+      .profile-name { font-size: 0.82rem !important; white-space: nowrap; }
+      .profile-bio { font-size: 0.82rem; }
+      .service-list { grid-template-columns: 1fr; }
+      .service-list li:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+      .service-list li:last-child { border-bottom: none; }
+
+      /* TESTIMONIALS */
+      .section-testimonials { padding: 48px 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+      .testimonial-card { padding: 28px 24px 24px; }
+
+      /* BENEFITS */
+      .section-benefits { padding: 48px 20px; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 8px; }
+      .benefit { padding: 32px 24px; }
+
+      /* PHILOSOPHY */
+      .section-philosophy { padding: 40px 20px; }
+      .philosophy-inner { grid-template-columns: 1fr; gap: 20px; }
+      .philosophy-photo-placeholder { aspect-ratio: 4/3; }
+      .philosophy-quote-block blockquote { font-size: 1.2rem; }
+      .philosophy-text .section-title { white-space: nowrap; }
+      .philosophy-text p { font-size: 0.85rem; line-height: 1.7; }
+
+      /* PROCESS */
+      .section-process { padding: 40px 20px 48px; }
+      .process-steps { margin: 28px auto 0; max-width: 100%; }
+      .process-step:first-child { margin-top: 16px; }
+      .process-step { gap: 20px; padding-bottom: 40px; }
+      .process-num { width: 50px; height: 50px; font-size: 1rem; flex-shrink: 0; }
+      .process-step:not(:last-child)::after { left: 24px; }
+
+      /* CONTACT */
+      .section-contact { padding: 32px 20px 28px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 20px; }
+      .contact-left .section-title { font-size: 1.15rem !important; }
+      .contact-right { padding: 24px 22px; }
+      .contact-right .section-title.light { font-size: 1.15rem !important; }
+
+      /* GOOGLE REVIEWS */
+      .google-reviews-grid { grid-template-columns: 1fr; gap: 14px; }
+      .google-badge { width: 100%; justify-content: center; }
+
+      /* FOOTER – eine kompakte Zeile auf Mobile */
+      footer { padding: 10px 16px; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 16px; max-width: 100%; overflow: hidden; }
+      .footer-logo { display: none; }
+      .footer-links { gap: 12px; flex-shrink: 0; }
+      .footer-links a { font-size: 0.65rem; }
+      .footer-copy { font-size: 0.65rem; white-space: nowrap; flex-shrink: 1; overflow: hidden; text-overflow: ellipsis; }
+      .mob-menu { top: 56px; }
+      .container { padding: 0 1.25rem; }
+      .foot-links { flex-wrap: wrap; gap: .6rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Die Privatpraxis <span>in Bogenhausen</span></div>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#philosophie">Über uns</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:089980800" class="nav-phone">089 / 980 800</a></li>
+      <li><a href="#kontakt" class="nav-cta">Termin</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">München · Bogenhausen</div>
+      <h1>Medizin, die sich<br>Ihre Zeit nimmt. <em>Wirklich.</em></h1>
+      <p class="hero-sub">
+        Sie sind kein Fall. Sie sind ein Mensch mit einer Geschichte –
+        und einem Arzt, der sie kennt. Kein 8-Minuten-Takt,
+        kein Nummernzettel. Nur Ihr Termin, Ihr Arzt, Ihr Plan.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">Termin vereinbaren</a>
+        <a href="tel:089980800" class="btn-outline">089 / 980 800</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIPE -->
+  <div class="stripe">
+    <div class="stripe-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Ganzheitliche Betreuung
+    </div>
+    <div class="stripe-sep"></div>
+    <div class="stripe-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Hausbesuche auf Wunsch
+    </div>
+    <div class="stripe-sep"></div>
+    <div class="stripe-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Termin am selben Tag möglich
+    </div>
+    <div class="stripe-sep"></div>
+    <div class="stripe-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Persönlicher Ansprechpartner
+    </div>
+  </div>
+
+  <!-- DUO -->
+  <section id="leistungen" class="section-duo">
+    <div class="duo-header" id="team">
+      <div class="section-label">Das Team</div>
+      <h2 class="section-title">Diagnose und Therapie –<br>aufeinander abgestimmt, aus einer Hand.</h2>
+      <p>Sie erklären Ihre Beschwerden einmal. Arzt und Physiotherapeut sprechen direkt miteinander – und entwickeln gemeinsam einen Plan, der wirklich zu Ihnen passt.</p>
+    </div>
+    <div class="duo-grid">
+
+      <!-- DR. GERHARD -->
+      <div class="duo-card">
+        <div class="duo-card-photo" style="background-image:url('card_gerhard_portrait.jpg'); background-color:#f8f7f3; background-position:50% 0px;"></div>
+        <div class="duo-card-top">
+          <div class="card-meta">
+            <h3>Dr. med. Karl Steffen Gerhard</h3>
+            <div class="role">Facharzt für Allgemeinmedizin · LMU München</div>
+          </div>
+        </div>
+        <div class="duo-card-body">
+          <p>Akademisch aktiv als Lehrbeauftragter der LMU München – das bedeutet: auf dem Stand der aktuellen Forschung, peer-reviewed, und mit dem Anspruch, der Medizin wirklich auf den Grund zu gehen. Kein Fließband, kein 8-Minuten-Takt.</p>
+          <div class="services-title">Leistungsspektrum</div>
+          <ul class="service-list">
+            <li>Herz-Kreislauf-Diagnostik (EKG, Gefäßdoppler)</li>
+            <li>Dopplersonographie Innere Organe &amp; Schilddrüse</li>
+            <li>Speziallabor (Immunstatus, Hormone, Nahrungsunverträglichkeit)</li>
+            <li>Krebsvorsorge &amp; Operationsvorbereitung</li>
+            <li>Lungenfunktion &amp; Allergiediagnostik</li>
+            <li>Schmerztherapie &amp; Immunmodulierende Infusionstherapie</li>
+            <li>Naturheilverfahren &amp; Orthomolekulare Medizin</li>
+            <li>Reisemedizin &amp; Sportmedizin</li>
+            <li>Hausbesuche nach Vereinbarung</li>
+          </ul>
+          <div class="card-contact">
+            <a href="tel:089980800">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              089 / 980 800
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUIS FISCHER -->
+      <div class="duo-card">
+        <div class="duo-card-photo">
+
+        </div>
+        <div class="duo-card-top">
+          <div class="card-meta">
+            <h3>Luis Fischer</h3>
+            <div class="role">Physiotherapeut · Rehabilitation &amp; Bewegungstherapie</div>
+          </div>
+        </div>
+        <div class="duo-card-body">
+          <p>Luis Fischer arbeitet nicht parallel zu Dr. Gerhard – sondern direkt mit ihm. Was der Arzt diagnostiziert, fließt unmittelbar in die Therapie ein. Sie müssen nichts zweimal erklären. Das Ergebnis: Behandlung, die greift.</p>
+          <div class="services-title">Leistungsspektrum</div>
+          <ul class="service-list">
+            <li>Manuelle Therapie &amp; Mobilisation</li>
+            <li>Physiotherapie nach Verletzungen &amp; Operationen</li>
+            <li>Orthopädische Rehabilitation</li>
+            <li>Rücken- und Wirbelsäulentherapie</li>
+            <li>Sportphysiotherapie &amp; Verletzungsprävention</li>
+            <li>Neurologische Physiotherapie</li>
+            <li>Krankengymnastik &amp; Bewegungstherapie</li>
+            <li>Individuelle Trainings- und Bewegungsberatung</li>
+          </ul>
+          <div class="card-contact">
+            <a href="tel:+4915771959900">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +49 157 71 95 99 00
+            </a>
+            <a href="mailto:luis.fischer@privatpraxisbogenhausen.de">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              luis.fischer@privatpraxisbogenhausen.de
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-testimonials">
+    <div class="testimonials-header">
+      <div class="section-label">Patientenstimmen</div>
+      <h2 class="section-title">Was unsere Patienten sagen.</h2>
+      <p>Vertrauen entsteht nicht durch Versprechen. Es entsteht durch Erfahrungen, die man nicht vergisst.</p>
+      <a href="https://www.google.com/maps/place/Privatpraxis+Bogenhausen/@48.144125,11.601426,17z/data=!4m8!3m7!1s0x0:0x0!8m2!3d48.144125!4d11.601426!9m1!1b1" target="_blank" rel="noopener" class="google-badge">
+        <svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <div class="google-badge-text">
+          <div class="google-badge-rating">5,0 · Google Bewertungen</div>
+          <div class="google-badge-stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="google-badge-label">Alle Bewertungen auf Google ansehen →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- GOOGLE REVIEWS -->
+    <div class="google-reviews-grid">
+
+      <div class="google-review-card">
+        <div class="google-review-header">
+          <div class="google-avatar" style="background:var(--navy);color:var(--gold);">MK</div>
+          <div>
+            <div class="google-reviewer-name">Michael K.</div>
+            <div class="google-reviewer-meta">vor 3 Monaten</div>
+          </div>
+        </div>
+        <div class="google-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="google-review-text">Außergewöhnlich guter Arzt. Dr. Gerhard nimmt sich wirklich die Zeit, die man braucht – kein Hetzen, kein Abwimmeln. Endlich eine Praxis, bei der man das Gefühl hat, ernst genommen zu werden.</div>
+        <div class="google-review-footer">
+          <svg class="google-g-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span class="google-review-source">Google Bewertung</span>
+        </div>
+      </div>
+
+      <div class="google-review-card">
+        <div class="google-review-header">
+          <div class="google-avatar" style="background:var(--gold);color:var(--navy);">SL</div>
+          <div>
+            <div class="google-reviewer-name">Sabine L.</div>
+            <div class="google-reviewer-meta">vor 5 Monaten</div>
+          </div>
+        </div>
+        <div class="google-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="google-review-text">Beste Hausarztpraxis in München. Sehr angenehme Atmosphäre, kein Wartezimmer-Stress. Dr. Gerhard erklärt alles verständlich und ausführlich. Absolute Empfehlung für alle, die Wert auf persönliche Betreuung legen.</div>
+        <div class="google-review-footer">
+          <svg class="google-g-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span class="google-review-source">Google Bewertung</span>
+        </div>
+      </div>
+
+      <div class="google-review-card">
+        <div class="google-review-header">
+          <div class="google-avatar" style="background:var(--navy);color:var(--gold);">TR</div>
+          <div>
+            <div class="google-reviewer-name">Thomas R.</div>
+            <div class="google-reviewer-meta">vor 8 Monaten</div>
+          </div>
+        </div>
+        <div class="google-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="google-review-text">Seit Jahren Patient hier und immer wieder begeistert. Die Kombination aus Arzt und Physiotherapeut unter einem Dach ist Gold wert. Man muss nicht alles zweimal erklären – das Team arbeitet wirklich zusammen.</div>
+        <div class="google-review-footer">
+          <svg class="google-g-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span class="google-review-source">Google Bewertung</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-benefits">
+    <div class="benefits-header">
+      <div class="section-label" style="color:var(--gold)">Was Sie bei uns erwartet</div>
+      <h2 class="section-title light">Medizin, die sich Zeit nimmt.</h2>
+      <p>Wir behandeln Menschen – keine Fälle.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Ihr Termin. Ihre Zeit.</h3>
+        <p>Kein Wartezimmer, kein Nummernzettel. Sie kommen, wenn Ihr Termin ist – und bekommen die Zeit, die Ihr Anliegen verdient.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Medizin ohne Kompromisse.</h3>
+        <p>Dr. Gerhard und Luis Fischer kennen Ihre Geschichte – und denken Ihre Gesundheit als Ganzes. Arzt und Physiotherapeut im direkten Austausch, für Sie.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Auch bei Ihnen zu Hause.</h3>
+        <p>Hausbesuche nach Vereinbarung – weil manche Situationen es erfordern, und weil gute Medizin dorthin kommt, wo sie gebraucht wird.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophie" class="section-philosophy">
+    <div class="philosophy-inner">
+      <div class="philosophy-text">
+        <div class="section-label">Über den Arzt</div>
+        <h2 class="section-title">Dr. med. Karl Steffen Gerhard</h2>
+        <div class="gold-rule"></div>
+        <p>Lehrbeauftragter der LMU München, Inhaber einer Lehrpraxis der Universität München – und vor allem: ein Arzt, der zuhört. Dr. Gerhard steht für Medizin, die den Menschen in den Mittelpunkt stellt, nicht den Kalender.</p>
+        <p>Zusammen mit Luis Fischer entsteht eine Praxis, in der ärztliche Diagnose und physiotherapeutische Therapie keine Einzelschritte sind – sondern ein gemeinsamer Plan, abgestimmt auf Sie.</p>
+      </div>
+      <div class="philosophy-quote-block">
+        <blockquote>
+          Hausärztliche Gesamtbetreuung mit intensiver, fachübergreifender Gesprächsberatung – weil gute Medizin Zeit braucht.
+        </blockquote>
+        <div class="quote-attr">— Dr. med. Karl Steffen Gerhard</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section-process">
+    <div class="process-header">
+      <div class="section-label">Ihr Weg zu uns</div>
+      <h2 class="section-title">So fühlt sich der Anfang an.</h2>
+      <p>Kein Papierkram, keine Hürden, nur ein Gespräch<br>und jemand, der zuhört.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-text">
+          <h3>Sie rufen an.</h3>
+          <p>Schildern Sie uns kurz Ihr Anliegen. Wir hören zu und finden gemeinsam einen Termin, der zu Ihnen passt.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-text">
+          <h3>Wir hören Ihre Geschichte.</h3>
+          <p>Dr. Gerhard nimmt sich Zeit für Sie. Er stellt die richtigen Fragen und denkt gemeinsam mit Ihnen.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-text">
+          <h3>Ihr persönlicher Plan.</h3>
+          <p>Sie gehen mit einem klaren Bild nach Hause: Was los ist, was als Nächstes passiert – und wer zuständig ist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt" class="section-contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label">Kontakt &amp; Anfahrt</div>
+        <h2 class="section-title">Ihr erster Anruf genügt.</h2>
+        <div class="gold-rule"></div>
+        <div class="info-block">
+          <div class="info-label">Adresse</div>
+          <div class="info-value">Ismaninger Straße 78 · 81675 München</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Telefon Praxis</div>
+          <div class="info-value"><a href="tel:089980800">089 / 980 800</a></div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Anfahrt</div>
+          <div class="info-value">Tram 16, Haltestelle Holbeinstraße</div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Ismaninger+Stra%C3%9Fe+78%2C+81675+M%C3%BCnchen" target="_blank" rel="noopener" class="btn-maps">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            In Google Maps öffnen
+          </a>
+        </div>
+        <div class="gold-rule"></div>
+        <div class="info-block">
+          <div class="info-label">Physiotherapie · Luis Fischer</div>
+          <div class="info-value">
+            <a href="tel:+4915771959900">+49 157 71 95 99 00</a><br>
+            <a href="mailto:luis.fischer@privatpraxisbogenhausen.de">luis.fischer@privatpraxisbogenhausen.de</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="section-label" style="color:var(--gold)">Sprechstunden</div>
+        <h2 class="section-title light">Ihr Termin. Ihr Rhythmus.</h2>
+        <p>Rufen Sie an. Gemeinsam finden wir einen Termin, der wirklich zu Ihrem Alltag passt. So einfach beginnt gute Medizin.</p>
+        <table class="hours-table">
+          <tr><td>Montag – Freitag</td><td>nach Vereinbarung</td></tr>
+          <tr><td>Hausbesuche</td><td>nach Absprache</td></tr>
+        </table>
+        <div style="margin-top:32px;">
+          <a href="tel:089980800" class="btn-primary">Jetzt anrufen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Die Privatpraxis <span>in Bogenhausen</span></div>
+    <div class="footer-links">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </div>
+    <div class="footer-copy">© 2026 Privatpraxis Bogenhausen</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[target="_blank"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(this.href, '_blank', 'noopener,noreferrer');
+      });
+    });
+  </script>
+</body>
+</html>

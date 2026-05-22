@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung | Tino Richter Schuldnerberatung München</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    :root {
+      --dark: #100d0b; --navy: #0d1f3c; --navy2: #0f2347;
+      --amber: #c4a06a; --amber-h: #a8875a; --steel: #64748b;
+      --border: #e2e8f0; --bg: #f6f8fc; --text: #1e293b; --white: #ffffff;
+      --max: 1140px; --r: 12px;
+    }
+    h1, h2, h3, h4 { line-height: 1.15; font-weight: 800; }
+    a { text-decoration: none; }
+    img { max-width: 100%; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .9rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: .93rem; cursor: pointer; text-decoration: none; transition: all .2s; border: none; }
+    .btn-primary { background: var(--amber); color: #fff; }
+    .btn-primary:hover { background: var(--amber-h); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,160,106,.35); }
+    .btn-wa { background: #fff; color: var(--navy); border: 2px solid rgba(13,31,60,.15); }
+    .btn-wa:hover { background: var(--bg); transform: translateY(-1px); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12,9,7,.97); backdrop-filter: blur(18px); height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo-mark { width: 32px; height: 32px; background: var(--amber); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-logo-text { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.2; }
+    .nav-logo-text span { display: block; color: rgba(255,255,255,.38); font-size: .68rem; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.6); font-size: .85rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: #fff; }
+    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--dark); z-index: 999; padding: 1.5rem 2rem 2rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mob-menu.open { display: block; }
+    .mob-menu a { display: block; color: rgba(255,255,255,.75); padding: .85rem 0; font-size: .95rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mob-menu .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--bg); padding: 120px 0 48px; border-bottom: 1px solid var(--border); }
+    .page-breadcrumb { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.1rem; }
+    .page-breadcrumb a { color: var(--steel); font-size: .78rem; transition: color .15s; }
+    .page-breadcrumb a:hover { color: var(--dark); }
+    .page-breadcrumb span { color: #cbd5e1; font-size: .78rem; }
+    .page-breadcrumb .current { color: var(--text); font-size: .78rem; font-weight: 600; }
+    .page-header h1 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--dark); letter-spacing: -.03em; }
+
+    /* CONTENT */
+    .content-section { padding: 4rem 0 5rem; background: #fff; }
+    .prose { max-width: 720px; }
+    .prose h2 { font-size: 1.15rem; color: var(--dark); margin: 2.2rem 0 .65rem; font-weight: 700; letter-spacing: -.015em; }
+    .prose h2:first-child { margin-top: 0; }
+    .prose h3 { font-size: 1rem; color: var(--dark); margin: 1.5rem 0 .5rem; font-weight: 700; }
+    .prose p { color: var(--text); font-size: .96rem; line-height: 1.85; margin-bottom: .85rem; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose a { color: var(--amber); text-decoration: underline; text-underline-offset: 2px; }
+    .prose a:hover { color: var(--amber-h); }
+    .prose ul { padding-left: 1.4rem; margin-bottom: .85rem; }
+    .prose ul li { color: var(--text); font-size: .96rem; line-height: 1.85; margin-bottom: .3rem; }
+
+    /* FOOTER */
+    footer { background: #040c16; padding: 1.75rem 2rem; border-top: 1px solid rgba(255,255,255,.04); }
+    .foot-in { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-copy { color: rgba(255,255,255,.6); font-size: .77rem; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { color: rgba(255,255,255,.6); font-size: .76rem; transition: color .15s; }
+    .foot-links a:hover { color: rgba(255,255,255,.5); }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,.18); transition: transform .2s; text-decoration: none; border: 1px solid rgba(0,0,0,.08); }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,.22); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    @media (max-width: 767px) {
+      nav { height: 56px; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .page-header { padding: 88px 0 36px; }
+      .foot-in { flex-direction: column; text-align: center; }
+      .foot-links { justify-content: center; }
+      .mob-menu { top: 56px; }
+      .container { padding: 0 1.25rem; }
+      .foot-links { flex-wrap: wrap; gap: .6rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Startseite</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="index.html" onclick="closeMenu()">Startseite</a>
+  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span>›</span>
+      <span class="current">Datenschutzerklärung</span>
+    </div>
+    <h1>Datenschutzerklärung</h1>
+  </div>
+</div>
+
+<section class="content-section">
+  <div class="container">
+    <div class="prose">
+
+      <h2>1. Datenschutz auf einen Blick</h2>
+
+      <h3>Allgemeine Hinweise</h3>
+      <p>
+        Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
+      </p>
+
+      <h3>Datenerfassung auf dieser Website</h3>
+      <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+      Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Impressum" in dieser Datenschutzerklärung entnehmen.</p>
+
+      <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+      Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+
+      <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+      Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+
+      <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+      Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
+
+      <h2>2. Hosting</h2>
+      <p>
+        Wir hosten die Inhalte unserer Website bei folgendem Anbieter: Die Hosting-Dienste dienen der Bereitstellung der folgenden Leistungen: Infrastruktur- und Plattformdienstleistungen, Rechenkapazität, Speicherplatz und Datenbankdienste, Sicherheitsleistungen sowie technische Wartungsleistungen, die wir zum Zweck des Betriebs dieser Website einsetzen.
+      </p>
+      <p>
+        Hierbei verarbeiten wir, bzw. unser Hostinganbieter, Bestands-, Kontakt-, Inhalts-, Vertrags-, Nutzungs-, Meta- und Kommunikationsdaten sowie Inhaltsdaten von Kunden, Interessenten und Besuchern dieser Website auf Grundlage unserer berechtigten Interessen an einer effizienten und sicheren Bereitstellung dieser Website gem. Art. 6 Abs. 1 lit. f DSGVO.
+      </p>
+
+      <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+
+      <h3>Datenschutz</h3>
+      <p>
+        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+      </p>
+      <p>
+        Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
+      </p>
+      <p>
+        Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+      </p>
+
+      <h3>Hinweis zur verantwortlichen Stelle</h3>
+      <p>
+        Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
+        Tino Richter – Schuldnerberatung München<br>
+        Eduard-Schmid-Straße 34<br>
+        81541 München<br><br>
+        Telefon: <a href="tel:08985635744">089 85635744</a><br>
+        E-Mail: <a href="mailto:info@schuldnerberatung-richter.de">info@schuldnerberatung-richter.de</a>
+      </p>
+      <p>
+        Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+      </p>
+
+      <h3>Speicherdauer</h3>
+      <p>
+        Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
+      </p>
+
+      <h3>Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website</h3>
+      <p>
+        Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO.
+      </p>
+      <p>
+        Soweit Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihrem Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar.
+      </p>
+
+      <h2>4. Ihre Rechte</h2>
+
+      <h3>Auskunft, Löschung und Berichtigung</h3>
+      <p>
+        Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
+      </p>
+
+      <h3>Recht auf Einschränkung der Verarbeitung</h3>
+      <p>
+        Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:
+      </p>
+      <ul>
+        <li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+        <li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.</li>
+        <li>Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+        <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+      </ul>
+
+      <h3>Recht auf Datenübertragbarkeit</h3>
+      <p>
+        Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
+      </p>
+
+      <h3>Widerspruch gegen Werbe-E-Mails</h3>
+      <p>
+        Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.
+      </p>
+
+      <h2>5. Datenerfassung auf dieser Website</h2>
+
+      <h3>Cookies</h3>
+      <p>
+        Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Datenpakete und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endgerät gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch gelöscht. Permanente Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese selbst löschen oder eine automatische Löschung durch Ihren Webbrowser erfolgt.
+      </p>
+      <p>
+        Cookies können von uns (First-Party-Cookies) oder von Drittunternehmen stammen (sog. Third-Party-Cookies). Third-Party-Cookies ermöglichen die Einbindung bestimmter Dienstleistungen von Drittunternehmen innerhalb von Webseiten (z. B. Cookies zur Abwicklung von Zahlungsdienstleistungen).
+      </p>
+      <p>
+        Cookies haben verschiedene Funktionen. Zahlreiche Cookies sind technisch notwendig, da bestimmte Webseitenfunktionen ohne diese nicht funktionieren würden (z. B. die Warenkorbfunktion oder die Anzeige von Videos). Andere Cookies können zur Auswertung des Nutzerverhaltens oder zu Werbezwecken verwendet werden.
+      </p>
+      <p>
+        Soweit Cookies zur Durchführung des elektronischen Kommunikationsvorgangs (notwendige Cookies) oder zur Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (funktionale Cookies, z. B. für die Warenkorbfunktion) oder zur Optimierung der Website (z. B. Cookies zur Messung des Webpublikums) erforderlich sind, werden diese Cookies auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren.
+      </p>
+
+      <h3>Server-Log-Dateien</h3>
+      <p>
+        Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+      </p>
+      <ul>
+        <li>Browsertyp und Browserversion</li>
+        <li>verwendetes Betriebssystem</li>
+        <li>Referrer URL</li>
+        <li>Hostname des zugreifenden Rechners</li>
+        <li>Uhrzeit der Serveranfrage</li>
+        <li>IP-Adresse</li>
+      </ul>
+      <p>
+        Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.
+      </p>
+
+      <h3>Kontaktformular und E-Mail-Kontakt</h3>
+      <p>
+        Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+      </p>
+      <p>
+        Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde.
+      </p>
+      <p>
+        Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
+      </p>
+
+      <h2>6. WhatsApp</h2>
+      <p>
+        Für die Kommunikation mit unseren Kunden und Interessenten nutzen wir unter anderem WhatsApp. WhatsApp ist ein Dienst der WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Beim Kontakt über WhatsApp werden Ihre Nachricht sowie die bei WhatsApp gespeicherten Stammdaten (Handynummer, Profilbild, Name, sofern vorhanden) von WhatsApp verarbeitet.
+      </p>
+      <p>
+        Wenn Sie uns über WhatsApp kontaktieren, verarbeiten wir Ihre mitgeteilten personenbezogenen Daten auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) zum Zweck der Beantwortung Ihrer Anfrage und der Kontaktaufnahme mit Ihnen. Ihre Daten werden nur für diese Zwecke gespeichert und nicht an Dritte weitergegeben.
+      </p>
+      <p>
+        Weitere Informationen zum Datenschutz bei WhatsApp finden Sie unter: <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener">https://www.whatsapp.com/legal/privacy-policy-eea</a>
+      </p>
+
+      <h2>7. Externe Terminbuchung</h2>
+      <p>
+        Für die Online-Terminvereinbarung verwenden wir externe Dienste. Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. Telefonnummer und Ihre Anliegen) direkt an den jeweiligen Dienstanbieter übertragen und dort verarbeitet. Diese Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) sowie Ihrer Einwilligung. Bitte beachten Sie auch die Datenschutzhinweise des jeweiligen Buchungsdienstanbieters.
+      </p>
+
+      <h2>8. Beschwerderecht bei der zuständigen Aufsichtsbehörde</h2>
+      <p>
+        Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
+      </p>
+      <p>
+        Die zuständige Aufsichtsbehörde in Bayern ist der Bayerische Landesbeauftragte für den Datenschutz (BayLfD):<br>
+        <a href="https://www.datenschutz-bayern.de" target="_blank" rel="noopener">www.datenschutz-bayern.de</a>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <span class="foot-copy">© 2026 Tino Richter · Schuldnerberatung München</span>
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    
+      <span style="color:rgba(255,255,255,.12);font-size:.72rem;">·</span>
+  <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="color:rgba(255,255,255,.25);font-size:.72rem;">Webseite von</span><a href="#" onclick="window.open('https://wa.me/4917643433973?text=Hallo%20Alexander%2C%20ich%20habe%20Interesse%20an%20einer%20Websiteerstellung%20f%C3%BCr%20','_blank');return false;" style="color:rgba(255,255,255,.25);font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.25);flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Alexander Mäding</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1c1410"/>
+        <stop offset="100%" stop-color="#0d1f3c"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#wa-grad)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mob-menu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mob-menu').classList.remove('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mob-menu');
+    const burger = document.querySelector('.burger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+</script>
+</body>
+</html>

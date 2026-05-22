@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schuldnerberatung München | Tino Richter</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Tino Richter – Ihr staatlich anerkannter Schuldnerberater in München. Kostenlose Erstberatung, außergerichtliche Einigung, Insolvenz. Seit 2012. § 305 InsO.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { overflow-x: hidden; max-width: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+
+    :root {
+      --dark:    #100d0b;
+      --navy:    #0d1f3c;
+      --navy2:   #0f2347;
+      --amber:   #c4a06a;
+      --amber-h: #a8875a;
+      --steel:   #64748b;
+      --border:  #e2e8f0;
+      --bg:      #f6f8fc;
+      --text:    #1e293b;
+      --white:   #ffffff;
+      --max:     1140px;
+      --r:       12px;
+    }
+
+    h1, h2, h3, h4 { line-height: 1.15; font-weight: 800; }
+    a { text-decoration: none; }
+    img { max-width: 100%; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      padding: .9rem 1.8rem; border-radius: 8px;
+      font-weight: 700; font-size: .93rem; cursor: pointer;
+      text-decoration: none; transition: all .2s; border: none;
+    }
+    .btn-primary { background: var(--amber); color: #fff; }
+    .btn-primary:hover { background: var(--amber-h); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,160,106,.35); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.3); }
+    .btn-outline:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.7); }
+    .btn-wa { background: #fff; color: var(--navy); border: 2px solid rgba(13,31,60,.15); }
+    .btn-wa:hover { background: var(--bg); transform: translateY(-1px); }
+
+    .sec-tag {
+      display: inline-block; background: var(--navy); color: rgba(255,255,255,.72);
+      font-size: .71rem; font-weight: 700; padding: .28rem .85rem;
+      border-radius: 100px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: .85rem;
+    }
+    .sec-h { font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--dark); margin-bottom: .8rem; letter-spacing: -.025em; }
+    .sec-sub { color: var(--steel); font-size: 1rem; max-width: 600px; line-height: 1.8; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(12,9,7,.97); backdrop-filter: blur(18px);
+      height: 64px; display: flex; align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo-mark { width: 32px; height: 32px; background: var(--amber); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-logo-text { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.2; }
+    .nav-logo-text span { display: block; color: rgba(255,255,255,.38); font-size: .68rem; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.6); font-size: .85rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta .btn { padding: .62rem 1.3rem; font-size: .84rem; }
+    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--dark); z-index: 999; padding: 1.5rem 2rem 2rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mob-menu.open { display: block; }
+    .mob-menu a { display: block; color: rgba(255,255,255,.75); padding: .85rem 0; font-size: .95rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mob-menu .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+    /* HERO */
+    #hero {
+      background: linear-gradient(150deg, #0f0c0a 0%, #1c1410 45%, #0d1f3c 100%);
+      display: flex; align-items: center;
+      padding: 96px 0 60px; position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 500px 350px at 70% 55%, rgba(196,160,106,.06) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; align-items: center; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(196,160,106,.12); border: 1px solid rgba(196,160,106,.25);
+      color: rgba(251,191,36,.85); padding: .32rem .85rem; border-radius: 100px;
+      font-size: .7rem; font-weight: 700; letter-spacing: .07em; margin-bottom: 1.1rem;
+    }
+    .hero-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+    #hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-bottom: 1rem; letter-spacing: -.03em; }
+    #hero h1 em { font-style: normal; color: var(--amber); }
+    #hero .hero-sub { font-size: .97rem; color: rgba(255,255,255,.52); margin-bottom: 1.75rem; max-width: 500px; line-height: 1.85; }
+    #hero .hero-sub strong { color: rgba(255,255,255,.82); font-weight: 600; }
+.hero-actions { display: flex; gap: .85rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-trust { display: flex; flex-wrap: nowrap; gap: 1.75rem; }
+    .hero-trust-item { display: flex; align-items: center; gap: .45rem; color: rgba(255,255,255,.38); font-size: .76rem; }
+    .hero-trust-item svg { width: 12px; height: 12px; fill: var(--amber); flex-shrink: 0; }
+    .hero-photo-wrap {
+      border-radius: 0; overflow: visible;
+      box-shadow: none;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 58%, transparent 100%), linear-gradient(108deg, transparent 0%, rgba(0,0,0,.35) 26%, black 50%);
+      -webkit-mask-composite: destination-in;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 58%, transparent 100%), linear-gradient(108deg, transparent 0%, rgba(0,0,0,.35) 26%, black 50%);
+      mask-composite: intersect;
+    }
+    .hero-photo-wrap img { width: 100%; height: 420px; object-fit: cover; object-position: top center; display: block; border-radius: 0; }
+    .hero-photo-badge {
+      position: absolute; bottom: 1.25rem; right: 1rem;
+      background: rgba(7,17,31,.88); backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: .7rem 1rem;
+      display: flex; align-items: center; gap: .85rem;
+    }
+    .hero-photo-badge .stars { color: #fbbf24; font-size: .78rem; letter-spacing: 1.5px; }
+    .hero-photo-badge .rating-text { color: rgba(255,255,255,.35); font-size: .62rem; margin-top: .1rem; }
+    .hero-photo-badge .rating-num { font-size: 1.25rem; font-weight: 900; color: #fff; }
+
+    /* TRUST STRIP */
+    #strip { background: var(--navy); padding: 1.15rem 0; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04); }
+    .strip-items { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .strip-item { display: flex; align-items: center; gap: .55rem; color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; white-space: nowrap; }
+    .strip-item svg { width: 13px; height: 13px; fill: var(--amber); flex-shrink: 0; }
+    .strip-dot { width: 1px; height: 18px; background: rgba(255,255,255,.15); }
+
+    /* TOOLS BAR */
+    #tools { background: #fff; border-bottom: 1px solid var(--border); }
+    .tools-inner { display: flex; max-width: 820px; margin: 0 auto; }
+    .tool-item {
+      flex: 1; display: flex; align-items: center; gap: .85rem;
+      padding: 1.1rem 1.5rem; text-decoration: none;
+      border-right: 1px solid var(--border); transition: background .18s;
+    }
+    .tool-item:last-child { border-right: none; }
+    .tool-item:hover { background: var(--bg); }
+    .tool-icon { width: 38px; height: 38px; border-radius: 9px; background: rgba(196,160,106,.12); border: 1px solid rgba(196,160,106,.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tool-icon svg { width: 17px; height: 17px; fill: var(--amber); }
+    .tool-label { font-weight: 700; font-size: .88rem; color: var(--dark); }
+    .tool-desc { font-size: .77rem; color: var(--steel); margin-top: .1rem; }
+    .tool-arrow { margin-left: auto; color: var(--amber); font-size: .85rem; font-weight: 700; }
+
+    /* NICHT ALLEIN */
+    #nicht-allein { padding: 5.5rem 0; background: #fff; }
+    .na-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; }
+    .na-left h2 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); color: var(--dark); margin-bottom: 1.25rem; letter-spacing: -.025em; line-height: 1.2; }
+    .na-left h2 em { font-style: normal; color: var(--amber); }
+    .na-left .lead { font-size: 1.05rem; color: var(--steel); line-height: 1.85; margin-bottom: 2rem; }
+    .situation-list { display: flex; flex-direction: column; gap: .75rem; }
+    .situation-item { display: flex; align-items: flex-start; gap: .85rem; padding: .85rem 1rem; background: var(--bg); border-radius: 10px; border-left: 3px solid var(--navy); }
+    .situation-item svg { width: 18px; height: 18px; fill: var(--navy); flex-shrink: 0; margin-top: .1rem; }
+    .situation-item p { font-size: .88rem; color: var(--text); line-height: 1.55; font-weight: 500; }
+    .na-right { position: sticky; top: 80px; }
+    .na-quote-box { background: var(--dark); border-radius: 18px; padding: 2.5rem; }
+    .na-quote { font-size: 1.08rem; color: rgba(255,255,255,.82); line-height: 1.85; font-style: italic; margin-bottom: 1.75rem; }
+    .na-quote-author { display: flex; align-items: center; gap: .85rem; margin-bottom: 2rem; }
+    .na-quote-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,.12); flex-shrink: 0; }
+    .na-quote-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .na-quote-name { color: #fff; font-weight: 700; font-size: .9rem; }
+    .na-quote-title { color: rgba(255,255,255,.38); font-size: .75rem; margin-top: .1rem; }
+    .na-key-facts { display: flex; flex-direction: column; gap: .75rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.08); }
+    .na-fact { display: flex; align-items: flex-start; gap: .75rem; color: rgba(255,255,255,.6); font-size: .85rem; line-height: 1.55; }
+    .na-fact svg { width: 15px; height: 15px; fill: var(--amber); flex-shrink: 0; margin-top: .15rem; }
+    .na-fact strong { color: #fff; }
+
+
+
+    /* LEISTUNGEN */
+    #leistungen { padding: 6rem 0; background: #fff; }
+    .leist-header { margin-bottom: 3.5rem; }
+    .leist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .leist-card {
+      background: var(--bg); border-radius: var(--r); padding: 2rem;
+      border: 1px solid var(--border); display: flex; gap: 1.4rem; align-items: stretch;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .leist-card:hover { border-color: rgba(196,160,106,.3); box-shadow: 0 8px 30px rgba(0,0,0,.05); }
+    .leist-num { font-size: 2rem; font-weight: 900; color: rgba(196,160,106,.25); line-height: 1; flex-shrink: 0; min-width: 2ch; align-self: flex-start; }
+    .leist-body { display: flex; flex-direction: column; flex: 1; }
+    .leist-body h3 { font-size: 1rem; margin-bottom: .45rem; color: var(--dark); font-weight: 700; }
+    .leist-body p { color: var(--steel); font-size: .85rem; line-height: 1.65; }
+    .leist-body a.leist-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .8rem; font-weight: 700; color: var(--amber); margin-top: auto; transition: gap .15s; }
+    .leist-body a.leist-link:hover { gap: .5rem; }
+
+    /* ABLAUF */
+    #ablauf { padding: 5.5rem 0; background: var(--bg); }
+    #ablauf .sec-tag { background: var(--navy); color: rgba(255,255,255,.72); }
+    #ablauf .sec-h { color: var(--dark); }
+    #ablauf .sec-sub { color: var(--steel); margin-bottom: 3rem; }
+    .ablauf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .ablauf-step { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 2rem 1.75rem; }
+    .ablauf-num {
+      width: 48px; height: 48px; border-radius: 50%; background: var(--amber);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900; color: #fff; margin-bottom: 1.25rem;
+    }
+    .ablauf-step h3 { color: var(--dark); font-size: 1rem; margin-bottom: .5rem; font-weight: 700; }
+    .ablauf-step p { color: var(--steel); font-size: .85rem; line-height: 1.65; }
+    .ablauf-note { margin-top: 2rem; background: rgba(196,160,106,.06); border: 1px solid rgba(196,160,106,.2); border-radius: 12px; padding: 1.25rem 1.75rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .ablauf-note svg { width: 18px; height: 18px; fill: var(--amber); flex-shrink: 0; margin-top: .1rem; }
+    .ablauf-note p { color: var(--steel); font-size: .85rem; line-height: 1.7; }
+    .ablauf-note strong { color: var(--dark); }
+
+    /* VERSPRECHEN */
+    #versprechen { background: var(--dark); padding: 3.5rem 0; border-top: 1px solid rgba(255,255,255,.04); }
+    .vp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+    .vp-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .vp-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(196,160,106,.15); border: 1px solid rgba(196,160,106,.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .vp-icon svg { width: 18px; height: 18px; fill: var(--amber); }
+    .vp-label { color: #fff; font-weight: 800; font-size: .95rem; margin-bottom: .25rem; }
+    .vp-desc { color: rgba(255,255,255,.38); font-size: .8rem; line-height: 1.6; }
+
+    /* ABOUT */
+    #about { padding: 5rem 0; background: var(--dark); }
+    .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.07); border-radius: 14px; overflow: hidden; margin-bottom: 3.5rem; }
+    .about-stat { background: rgba(255,255,255,.03); padding: 2.25rem 2rem; text-align: center; }
+    .about-stat-num { font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: var(--amber); letter-spacing: -.03em; line-height: 1; margin-bottom: .35rem; }
+    .about-stat-label { color: rgba(255,255,255,.4); font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-quote { font-size: 1.15rem; color: rgba(255,255,255,.75); line-height: 1.85; font-style: italic; border-left: 3px solid var(--amber); padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .about-name { color: #fff; font-weight: 800; font-size: .9rem; }
+    .about-title { color: rgba(255,255,255,.35); font-size: .78rem; margin-top: .2rem; }
+    #about .sec-h { color: #fff; }
+    #about .sec-tag { background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); }
+    .about-points { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
+    .about-point { display: flex; align-items: flex-start; gap: .75rem; color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.6; }
+    .about-point svg { width: 14px; height: 14px; fill: var(--amber); flex-shrink: 0; margin-top: .2rem; }
+
+    /* BEWERTUNGEN */
+    #bewertungen { padding: 5rem 0; background: #fff; position: relative; overflow: hidden; }
+    .bew-ghost {
+      position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+      font-size: clamp(9rem, 16vw, 16rem); font-weight: 900; line-height: 1;
+      letter-spacing: -.06em; color: rgba(196,160,106,.07);
+      pointer-events: none; user-select: none; white-space: nowrap;
+    }
+    .bew-inner {
+      display: flex; align-items: flex-start; gap: 2.5rem;
+      border-left: 3px solid var(--amber); padding-left: 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .bew-stars { color: #fbbf24; font-size: .95rem; letter-spacing: 2px; margin-bottom: .4rem; }
+    .bew-heading { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--dark); letter-spacing: -.035em; line-height: 1.1; margin-bottom: .5rem; }
+    .bew-count { color: var(--steel); font-size: .83rem; margin-bottom: 1.5rem; }
+    .bew-link { display: inline-flex; align-items: center; gap: .45rem; font-size: .85rem; font-weight: 700; color: var(--amber); transition: opacity .15s; }
+    .bew-link:hover { opacity: .7; }
+    .bew-link svg { width: 14px; height: 14px; fill: var(--amber); }
+
+    /* KONTAKT */
+    #kontakt { padding: 4.5rem 0; background: var(--bg); }
+    .kontakt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+    .k-item { display: flex; gap: 1rem; align-items: flex-start; background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; }
+    .k-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(13,31,60,.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .k-icon svg { width: 20px; height: 20px; fill: var(--navy); }
+    .k-body strong { display: block; font-size: .72rem; color: var(--steel); font-weight: 600; margin-bottom: .25rem; text-transform: uppercase; letter-spacing: .05em; }
+    .k-body a, .k-body p { color: var(--text); font-size: .93rem; font-weight: 600; }
+    .k-body a:hover { color: var(--amber); }
+    .k-body .k-note { color: var(--steel); font-size: .78rem; font-weight: 400; margin-top: .15rem; }
+    .k-maps { display: inline-flex; align-items: center; gap: .35rem; margin-top: .5rem; font-size: .78rem; font-weight: 700; color: var(--amber); }
+    .k-maps svg { width: 12px; height: 12px; fill: var(--amber); }
+
+    /* FOOTER */
+    footer { background: #040c16; padding: 1.75rem 2rem; border-top: 1px solid rgba(255,255,255,.04); }
+    .foot-in { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-copy { color: rgba(255,255,255,.6); font-size: .77rem; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { color: rgba(255,255,255,.6); font-size: .76rem; transition: color .15s; }
+    .foot-links a:hover { color: #fff; }
+
+    /* WA FLOAT */
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,.18); transition: transform .2s; text-decoration: none; border: 1px solid rgba(0,0,0,.08); }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,.22); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    /* TABLET */
+    @media (max-width: 1023px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      #hero { min-height: auto; padding: 100px 0 60px; }
+      .na-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .na-right { position: static; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+      .about-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .leist-grid { grid-template-columns: 1fr; }
+      .bew-ghost { display: none; }
+      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .vp-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .ablauf-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 767px) {
+      nav { height: 56px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .burger { display: flex; }
+      #hero { padding: 72px 0 44px; }
+      #hero h1 { font-size: 1.85rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .strip-items { gap: .75rem 1.25rem; justify-content: flex-start; }
+      .strip-dot { display: none; }
+      .tools-inner { flex-direction: column; }
+      .tool-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .tool-item:last-child { border-bottom: none; }
+      .sec-h { font-size: 1.65rem; }
+      #leistungen, #about, #bewertungen, #kontakt, #nicht-allein, #ablauf { padding: 4rem 0; }
+      .foot-in { flex-direction: column; text-align: center; }
+      .foot-links { justify-content: center; }
+      .mob-menu { top: 56px; }
+      .container { padding: 0 1.25rem; }
+      .foot-links { flex-wrap: wrap; gap: .6rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#nicht-allein">Warum zu mir?</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="#nicht-allein" onclick="closeMenu()">Warum zu mir?</a>
+  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
+  <a href="#about" onclick="closeMenu()">Über mich</a>
+  <a href="#bewertungen" onclick="closeMenu()">Bewertungen</a>
+  <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="terminbuchung.html" class="btn btn-primary">Kostenloser Ersttermin</a>
+</div>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-l">
+<h1>Von der ersten Frage<br>bis zur letzten Einigung –<br><em>ich bin persönlich für Sie da.</em></h1>
+        <p class="hero-sub">Seit 2012 <strong>staatlich anerkannter Schuldnerberater</strong> in München. Ich begleite Sie durch jeden Schritt – damit Sie sich auf das konzentrieren können, <strong>was Ihnen wirklich wichtig ist.</strong></p>
+        <div class="hero-actions">
+          <a href="terminbuchung.html" class="btn btn-primary">Jetzt kostenlosen Ersttermin buchen</a>
+          <a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--navy);flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp schreiben</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Staatlich anerkannt gem. § 305 InsO</div>
+          <div class="hero-trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Seit 2012 in München</div>
+
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="https://www.schuldnerberatung-richter.de/wp-content/uploads/2023/04/Tino-Richter_00002.jpg" alt="Tino Richter – Schuldnerberater München">
+        <div class="hero-photo-badge">
+          <div><div class="stars">★★★★★</div><div class="rating-text">1.163 Bewertungen auf ProvenExpert</div></div>
+          <div class="rating-num">5,0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="tools">
+  <div class="tools-inner">
+    <a href="pfaendungsrechner.html" class="tool-item">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <div>
+        <div class="tool-label">Pfändungsrechner</div>
+        <div class="tool-desc">Sofort berechnen – kostenlos &amp; anonym</div>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+    <a href="https://www.schutzkonto.de/" target="_blank" class="tool-item">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+      <div>
+        <div class="tool-label">P-Konto Bescheinigung</div>
+        <div class="tool-desc">Jetzt beantragen – Konto sofort schützen</div>
+      </div>
+      <div class="tool-arrow">→</div>
+    </a>
+  </div>
+</div>
+
+<section id="nicht-allein">
+  <div class="container">
+    <div class="na-grid">
+      <div class="na-left">
+        <div class="sec-tag">Warum zu mir?</div>
+        <h2>Sie sind nicht allein –<br>ich zeige Ihnen den Weg <em>aus der Krise.</em></h2>
+        <p class="lead">Ihr Fall ist individuell, aber Sie sind nicht allein. Menschen geraten aus ganz unterschiedlichen Gründen in die Schuldenfalle – ich zeige Ihnen den Weg aus der Krise.</p>
+        <div class="situation-list">
+          <div class="situation-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <p>Die Ansprüche übersteigen das Budget – das verfügbare Monatseinkommen reicht gerade für die Kredite und Zinsen.</p>
+          </div>
+          <div class="situation-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <p>Veränderungen der Lebensumstände lassen finanzielle und soziale Nöte entstehen – die Ersparnisse sind aufgebraucht, Darlehen können nicht zurückgezahlt werden.</p>
+          </div>
+          <div class="situation-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <p>Ihre Existenzsicherung hat Priorität. Also keine falsche Scheu – ich zeige Ihnen den Weg aus der Krise.</p>
+          </div>
+        </div>
+      </div>
+      <div class="na-right">
+        <div class="na-quote-box">
+          <p class="na-quote">„Schulden sind eine Herausforderung – aber auch Schuldenberge sind in den Griff zu bekommen. Es gibt immer einen Weg raus. Ich kenne ihn."</p>
+          <div class="na-quote-author">
+            <div class="na-quote-avatar"><img src="https://www.schuldnerberatung-richter.de/wp-content/uploads/2023/04/Tino-Richter_00002.jpg" alt="Tino Richter"></div>
+            <div><div class="na-quote-name">Tino Richter</div><div class="na-quote-title">Staatl. anerkannter Schuldnerberater · Seit 2012</div></div>
+          </div>
+          <div class="na-key-facts">
+            <div class="na-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Keine falsche Scheu:</strong> Das erste Gespräch kostet nichts und verpflichtet zu nichts.</span></div>
+            <div class="na-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Absolut diskret:</strong> Was Sie mir erzählen, bleibt zwischen uns.</span></div>
+            <div class="na-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Sofort verfügbar:</strong> Kein halbes Jahr Wartezeit wie beim Amt.</span></div>
+            <div class="na-fact"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Sie behalten Ihr Konto</strong> und Ihr pfändungsfreies Einkommen.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="leistungen">
+  <div class="container">
+    <div class="leist-header">
+      <div class="sec-tag">Leistungen</div>
+      <h2 class="sec-h">Ich mach das. Sie atmen durch.</h2>
+      <p class="sec-sub">Von der ersten Bestandsaufnahme bis zur Schuldenfreiheit – ich übernehme den Gläubigerkontakt, den Schriftverkehr und die Verhandlungen. Sämtlich. Vollständig. Persönlich.</p>
+    </div>
+    <div class="leist-grid">
+      <div class="leist-card"><div class="leist-num">01</div><div class="leist-body"><h3>Kostenlose Erstberatung & Überblick</h3><p>Im ersten Gespräch schaffe ich mir gemeinsam mit Ihnen einen Überblick – alle Schulden, alle Gläubiger, alle Optionen. Ich sage Ihnen direkt, was ich für Sie tun kann. Ohne Kosten, ohne Verpflichtung.</p><a href="schuldnerberater.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">02</div><div class="leist-body"><h3>Außergerichtliche Einigung</h3><p>Ich strebe zunächst Einigungen mit Ihren Gläubigern ohne Gerichtsverfahren an. Ich übernehme sämtlichen Schriftverkehr und verhandle wirtschaftlich sinnvolle Tilgungspläne für Sie.</p><a href="aussergerichtlich.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">03</div><div class="leist-body"><h3>Privatinsolvenz & Restschuldbefreiung</h3><p>Scheitert die außergerichtliche Einigung, stehe ich Ihnen auch beim Insolvenzantrag zur Seite – von der Antragstellung bis zur Restschuldbefreiung. Auch dann begleite ich Sie persönlich.</p><a href="privatinsolvenz.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">04</div><div class="leist-body"><h3>P-Konto Bescheinigung</h3><p>Ich stelle Ihnen die P-Konto-Bescheinigung aus, damit Sie weiter auf Ihr Existenzminimum zugreifen können. Als staatlich anerkannte Stelle bin ich dazu berechtigt.</p><a href="p-konto.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">05</div><div class="leist-body"><h3>Schuldnerberatung für Selbstständige</h3><p>Auch Selbstständige und kleine Unternehmen geraten in Schuldenfallen. Ich kenne die speziellen rechtlichen Regeln und helfe Ihnen, Ihren Betrieb zu retten oder geordnet abzuwickeln.</p><a href="unternehmen.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">06</div><div class="leist-body"><h3>Pfändungsschutz & Notfallhilfe</h3><p>Gerichtsvollzieher vor der Tür, Konto gesperrt, Lohn gepfändet? Das sind Notfallsituationen – und genau dafür bin ich da. Ich helfe sofort, unkompliziert und direkt. Kein Warten.</p><a href="pfaendung.html" class="leist-link">Mehr erfahren →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="container">
+    <div class="sec-tag">So läuft das ab</div>
+    <h2 class="sec-h">Einigungen ohne Gerichtsverfahren als erste Option.</h2>
+    <p class="sec-sub">Ich begleite Sie dabei, zunächst Einigungen mit Ihren Gläubigern ohne Gerichtsverfahren anzustreben. Erst wenn dieser Versuch scheitert, folgt der Antrag auf Insolvenz. Und auch dann stehe ich Ihnen zur Seite.</p>
+    <div class="ablauf-grid">
+      <div class="ablauf-step"><div class="ablauf-num">1</div><h3>Kostenlose, unverbindliche Erstberatung</h3><p>Buchen Sie online Ihren Beratungstermin – sofort verfügbar, ohne Wartezeit. Ich nehme mir Zeit für Ihre individuelle Situation.</p></div>
+      <div class="ablauf-step"><div class="ablauf-num">2</div><h3>Außergerichtliche Einigung</h3><p>Ich spreche mit allen Gläubigern und übernehme sämtlichen Schriftverkehr für Sie. Ziel: wirtschaftlich sinnvolle Lösungen und Tilgungspläne – ohne Gericht.</p></div>
+      <div class="ablauf-step"><div class="ablauf-num">3</div><h3>Insolvenzverfahren wenn nötig</h3><p>Scheitert die außergerichtliche Einigung, begleite ich Sie durch das Insolvenzverfahren – von der Antragstellung bis zur Restschuldbefreiung.</p></div>
+    </div>
+    <div class="ablauf-note">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      <p><strong>Staatlich anerkannte Stelle gem. § 305 InsO:</strong> Der außergerichtliche Einigungsversuch ist gesetzliche Voraussetzung für einen Insolvenzantrag. Tino Richter darf die dafür erforderliche Bescheinigung als staatlich anerkannte Stelle ausstellen.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="bewertungen">
+  <div class="bew-ghost">5,0</div>
+  <div class="container">
+    <div class="bew-inner">
+      <div>
+        <div class="sec-tag">Bewertungen</div>
+        <div class="bew-stars">★★★★★</div>
+        <h2 class="bew-heading">Vertrauen zählt.</h2>
+        <p class="bew-count">1.163 Bewertungen auf ProvenExpert – durchgehend 5,0 Sterne.</p>
+        <a href="https://www.provenexpert.com/schuldnerberatung-richter/" target="_blank" class="bew-link">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Alle Bewertungen auf ProvenExpert lesen →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="container">
+    <div class="sec-tag">Kontakt</div>
+    <h2 class="sec-h">Melden genügt. Den Rest übernehme ich.</h2>
+    <div class="kontakt-grid">
+      <div class="k-item"><div class="k-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div class="k-body"><strong>Telefon</strong><a href="tel:08985635744">089 85635744</a><p class="k-note">Mo – Fr · 09:00 – 16:00 Uhr</p></div></div>
+      <div class="k-item"><div class="k-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div class="k-body"><strong>E-Mail</strong><a href="mailto:info@schuldnerberatung-richter.de">info@schuldnerberatung-richter.de</a></div></div>
+      <div class="k-item"><div class="k-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div><div class="k-body"><strong>WhatsApp</strong><a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank">Direkt schreiben</a><p class="k-note">Ich antworte persönlich – diskret und schnell</p></div></div>
+      <div class="k-item"><div class="k-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div class="k-body"><strong>Adresse</strong><p>Eduard-Schmid-Straße 34, 81541 München</p><a href="https://maps.google.com/?q=Eduard-Schmid-Straße+34,+81541+München" target="_blank" class="k-maps"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>In Google Maps öffnen →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <p class="foot-copy">© 2026 Tino Richter · Schuldnerberatung München</p>
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="#kontakt">Kontakt</a>
+    
+      <span style="color:rgba(255,255,255,.12);font-size:.72rem;">·</span>
+  <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="color:rgba(255,255,255,.25);font-size:.72rem;">Webseite von</span><a href="#" onclick="window.open('https://wa.me/4917643433973?text=Hallo%20Alexander%2C%20ich%20habe%20Interesse%20an%20einer%20Websiteerstellung%20f%C3%BCr%20','_blank');return false;" style="color:rgba(255,255,255,.25);font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.25);flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Alexander Mäding</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <defs>
+      <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1c1410"/>
+        <stop offset="100%" stop-color="#0d1f3c"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#wa-grad)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() { document.getElementById('mob-menu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mob-menu').classList.remove('open'); }
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mob-menu');
+    const nav = document.getElementById('nav');
+    if (menu.classList.contains('open') && !nav.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('open');
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('scroll', () => { if (document.getElementById('mob-menu').classList.contains('open')) closeMenu(); });
+</script>
+</body>
+</html>

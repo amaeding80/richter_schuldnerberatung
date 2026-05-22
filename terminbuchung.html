@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kostenlosen Ersttermin buchen – Schuldnerberatung München | Tino Richter</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Kostenlosen Ersttermin bei Tino Richter buchen – staatlich anerkannter Schuldnerberater München. Direkt, persönlich, kostenlos. Seit 2012.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    body { overflow-x: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    :root { --dark: #100d0b; --navy: #0d1f3c; --amber: #c4a06a; --amber-h: #a8875a; --steel: #64748b; --border: #e2e8f0; --bg: #f6f8fc; --text: #1e293b; --white: #ffffff; --max: 1140px; --r: 12px; }
+    h1, h2, h3, h4 { line-height: 1.15; font-weight: 800; }
+    a { text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .9rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: .93rem; cursor: pointer; text-decoration: none; transition: all .2s; border: none; }
+    .btn-primary { background: var(--amber); color: #fff; }
+    .btn-primary:hover { background: var(--amber-h); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,160,106,.35); }
+    .btn-ghost { background: transparent; color: var(--steel); border: 2px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+    .sec-tag { display: inline-block; background: var(--navy); color: rgba(255,255,255,.72); font-size: .71rem; font-weight: 700; padding: .28rem .85rem; border-radius: 100px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: .85rem; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12,9,7,.97); backdrop-filter: blur(18px); height: 64px; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo-mark { width: 32px; height: 32px; background: var(--amber); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark svg { width: 16px; height: 16px; fill: #fff; }
+    .nav-logo-text { color: #fff; font-weight: 700; font-size: .92rem; line-height: 1.2; }
+    .nav-logo-text span { display: block; color: rgba(255,255,255,.38); font-size: .68rem; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.6); font-size: .85rem; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--dark); z-index: 999; padding: 1.5rem 2rem 2rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .mob-menu.open { display: block; }
+    .mob-menu a { display: block; color: rgba(255,255,255,.75); padding: .85rem 0; font-size: .95rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mob-menu .btn { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+    .page-hero { background: linear-gradient(150deg, #0f0c0a 0%, #1c1410 45%, #0d1f3c 100%); padding: 120px 0 64px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 600px 400px at 80% 50%, rgba(196,160,106,.05) 0%, transparent 70%); pointer-events: none; }
+    .page-hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(196,160,106,.12); border: 1px solid rgba(196,160,106,.25); color: rgba(251,191,36,.85); padding: .32rem .85rem; border-radius: 100px; font-size: .7rem; font-weight: 700; letter-spacing: .07em; margin-bottom: 1.1rem; }
+    .page-hero h1 { font-size: clamp(2rem, 3.8vw, 3rem); color: #fff; margin-bottom: 1rem; letter-spacing: -.03em; }
+    .page-hero h1 em { font-style: normal; color: var(--amber); }
+    .page-hero p { color: rgba(255,255,255,.52); font-size: .97rem; max-width: 560px; line-height: 1.85; }
+    .page-breadcrumb { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.25rem; }
+    .page-breadcrumb a, .page-breadcrumb span { color: rgba(255,255,255,.3); font-size: .78rem; }
+    .page-breadcrumb .current { color: rgba(255,255,255,.55); }
+
+    #strip { background: var(--navy); padding: 1.15rem 0; }
+    .strip-items { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .strip-item { display: flex; align-items: center; gap: .55rem; color: rgba(255,255,255,.7); font-size: .82rem; font-weight: 600; white-space: nowrap; }
+    .strip-item svg { width: 13px; height: 13px; fill: var(--amber); flex-shrink: 0; }
+    .strip-dot { width: 1px; height: 18px; background: rgba(255,255,255,.15); }
+
+    /* BOOKING SECTION */
+    #booking { padding: 5.5rem 0; background: var(--bg); }
+    .booking-grid { display: grid; grid-template-columns: 1fr 320px; gap: 3.5rem; align-items: start; }
+    .contact-card { background: #fff; border-radius: 18px; border: 1px solid var(--border); padding: 2.5rem; box-shadow: 0 4px 32px rgba(0,0,0,.06); }
+    .contact-card h2 { font-size: 1.35rem; color: var(--dark); margin-bottom: .4rem; }
+    .contact-card .sub { color: var(--steel); font-size: .9rem; line-height: 1.7; margin-bottom: 2rem; }
+    .contact-options { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+    .contact-option { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1.5px solid var(--border); background: var(--bg); transition: border-color .15s, box-shadow .15s; text-decoration: none; }
+    .contact-option:hover { border-color: var(--amber); box-shadow: 0 4px 20px rgba(196,160,106,.12); }
+    .contact-option-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-option-icon.wa { background: #fff; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 2px 10px rgba(0,0,0,.10); }
+    .contact-option-icon.phone { background: #fff; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 2px 10px rgba(0,0,0,.10); }
+    .contact-option-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .contact-option-text strong { display: block; font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: .15rem; }
+    .contact-option-text span { font-size: .82rem; color: var(--steel); }
+    .contact-option-arrow { margin-left: auto; color: var(--border); font-size: 1.2rem; flex-shrink: 0; }
+    .contact-option:hover .contact-option-arrow { color: var(--amber); }
+    .contact-steps { background: var(--bg); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); }
+    .contact-steps h4 { font-size: .75rem; font-weight: 700; color: var(--steel); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; }
+    .contact-step { display: flex; align-items: flex-start; gap: .85rem; padding: .5rem 0; }
+    .contact-step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--amber); color: #fff; font-size: .72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .05rem; }
+    .contact-step-text { font-size: .85rem; color: var(--text); line-height: 1.5; }
+
+    /* STEP INDICATOR */
+    .step-indicator { display: flex; align-items: center; gap: 0; margin-bottom: 2.5rem; }
+    .step-dot { display: flex; align-items: center; gap: .6rem; }
+    .step-dot-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .82rem; font-weight: 800; transition: all .25s; flex-shrink: 0; }
+    .step-dot-num.active { background: var(--amber); color: #fff; box-shadow: 0 4px 14px rgba(196,160,106,.4); }
+    .step-dot-num.done { background: var(--navy); color: #fff; }
+    .step-dot-num.pending { background: #fff; color: var(--steel); border: 2px solid var(--border); }
+    .step-dot-label { font-size: .78rem; font-weight: 700; color: var(--steel); white-space: nowrap; }
+    .step-dot-label.active { color: var(--text); }
+    .step-line { flex: 1; height: 2px; background: var(--border); margin: 0 .75rem; min-width: 20px; transition: background .25s; }
+    .step-line.done { background: var(--navy); }
+
+    /* FORM CARD */
+    .form-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.05); }
+    .form-card h2 { font-size: 1.35rem; color: var(--dark); margin-bottom: .4rem; }
+    .form-card .form-subtitle { color: var(--steel); font-size: .88rem; margin-bottom: 2rem; line-height: 1.6; }
+
+    /* DATE DISPLAY */
+    .form-date { display: inline-flex; align-items: center; gap: .5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: .45rem 1rem; font-size: .8rem; font-weight: 600; color: var(--steel); margin-bottom: 1.75rem; }
+    .form-date svg { width: 14px; height: 14px; fill: var(--amber); }
+
+    /* FORM ROWS */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-row.three { grid-template-columns: 1fr 1fr 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .78rem; font-weight: 700; color: var(--text); letter-spacing: .02em; }
+    .form-group label span { color: var(--amber); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: .75rem 1rem; border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: .9rem; color: var(--text); background: #fff; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s; outline: none; width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--amber); box-shadow: 0 0 0 3px rgba(196,160,106,.12);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #aab; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%2394a3b8'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .75rem center; background-size: 18px; padding-right: 2.5rem; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    /* RADIO */
+    .radio-group { display: flex; gap: .75rem; margin-top: .25rem; }
+    .radio-item { display: flex; align-items: center; gap: .5rem; cursor: pointer; }
+    .radio-item input[type="radio"] { display: none; }
+    .radio-box { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all .15s; flex-shrink: 0; }
+    .radio-item input[type="radio"]:checked + .radio-box { border-color: var(--amber); background: var(--amber); }
+    .radio-item input[type="radio"]:checked + .radio-box::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
+    .radio-item span { font-size: .88rem; color: var(--text); font-weight: 600; }
+
+    /* FORM NAV */
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .form-nav-right { display: flex; gap: .75rem; }
+
+    /* STEP PANELS */
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    /* SUCCESS */
+    .success-box { text-align: center; padding: 3rem 2rem; }
+    .success-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--amber-h)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .success-icon svg { width: 36px; height: 36px; fill: #fff; }
+    .success-box h2 { font-size: 1.6rem; color: var(--dark); margin-bottom: .75rem; }
+    .success-box p { color: var(--steel); font-size: .93rem; line-height: 1.8; max-width: 400px; margin: 0 auto 2rem; }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-box { background: var(--dark); border-radius: 16px; padding: 2rem; margin-bottom: 1.25rem; }
+    .sidebar-box h3 { color: #fff; font-size: 1rem; margin-bottom: 1.25rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: .75rem; padding: .7rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .contact-item:last-of-type { border-bottom: none; }
+    .contact-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(196,160,106,.12); border: 1px solid rgba(196,160,106,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-icon svg { width: 14px; height: 14px; fill: var(--amber); }
+    .contact-label { color: rgba(255,255,255,.3); font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem; }
+    .contact-value { color: rgba(255,255,255,.82); font-size: .85rem; font-weight: 600; line-height: 1.4; }
+    .contact-value a { color: rgba(255,255,255,.82); transition: color .15s; }
+    .contact-value a:hover { color: var(--amber); }
+    .contact-note { color: rgba(255,255,255,.28); font-size: .75rem; margin-top: .2rem; }
+    .sidebar-note { color: rgba(255,255,255,.28); font-size: .77rem; line-height: 1.65; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.07); }
+
+    /* TRUST ITEMS */
+    .sidebar-trust { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .sidebar-trust h4 { font-size: .72rem; color: var(--steel); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .9rem; }
+    .trust-item { display: flex; align-items: center; gap: .55rem; padding: .4rem 0; }
+    .trust-item svg { width: 14px; height: 14px; fill: var(--amber); flex-shrink: 0; }
+    .trust-item span { font-size: .83rem; color: var(--text); font-weight: 600; }
+
+    /* FOOTER */
+    footer { background: #040c16; padding: 1.75rem 2rem; border-top: 1px solid rgba(255,255,255,.04); }
+    .foot-in { max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .foot-copy { color: rgba(255,255,255,.6); font-size: .77rem; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { color: rgba(255,255,255,.6); font-size: .76rem; transition: color .15s; }
+    .foot-links a:hover { color: #fff; }
+    .wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,.18); transition: transform .2s; text-decoration: none; border: 1px solid rgba(0,0,0,.08); }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,.22); }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    @media (max-width: 1023px) {
+      .booking-grid { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+    @media (max-width: 767px) {
+      nav { height: 56px; }
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .page-hero { padding: 88px 0 44px; }
+      .page-hero h1 { font-size: 1.85rem; }
+      .strip-dot { display: none; }
+      #booking { padding: 3rem 0; }
+      .form-card { padding: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-row.three { grid-template-columns: 1fr; }
+      .foot-in { flex-direction: column; text-align: center; }
+      .foot-links { justify-content: center; }
+      .mob-menu { top: 56px; }
+      .container { padding: 0 1.25rem; }
+      .foot-links { flex-wrap: wrap; gap: .6rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+      <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
+      <li><a href="leistungen.html">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="index.html" onclick="closeMenu()">Startseite</a>
+  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="pfaendung.html" onclick="closeMenu()">Pfändung – was jetzt</a>
+  <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="terminbuchung.html" class="btn btn-primary" onclick="closeMenu()">Termin buchen</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span>›</span>
+      <span class="current">Termin buchen</span>
+    </div>
+    <div class="page-hero-badge"><span style="width:5px;height:5px;border-radius:50%;background:var(--amber);display:inline-block;"></span>Kostenlos &amp; unverbindlich</div>
+    <h1>Ersttermin anfragen – <em>ich melde mich persönlich.</em></h1>
+    <p>Kurze Nachricht per WhatsApp oder Anruf genügt. Ich melde mich mit einem Terminvorschlag – <strong style="color:rgba(255,255,255,.82);">telefonisch oder vor Ort</strong>, ganz wie es für Sie passt.</p>
+  </div>
+</div>
+
+<div id="strip">
+  <div class="container">
+    <div class="strip-items">
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Kostenlose Erstberatung</div>
+      <div class="strip-dot"></div>
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Persönliche Rückmeldung</div>
+      <div class="strip-dot"></div>
+      <div class="strip-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Staatlich anerkannt § 305 InsO</div>
+    </div>
+  </div>
+</div>
+
+<section id="booking">
+  <div class="container">
+    <div class="booking-grid">
+
+      <div>
+        <div class="contact-card">
+          <h2>Ersttermin anfragen</h2>
+          <p class="sub">Schreiben Sie mir kurz per WhatsApp oder rufen Sie an – ich melde mich persönlich mit zwei bis drei konkreten Terminvorschlägen. Telefonisch oder vor Ort in München, ganz wie Sie möchten.</p>
+
+          <div class="contact-options">
+            <a href="https://wa.me/4908985635744?text=Hallo%20Herr%20Richter%2C%20ich%20w%C3%BCrde%20gerne%20einen%20kostenlosen%20Ersttermin%20vereinbaren." class="contact-option" target="_blank" rel="noopener">
+              <div class="contact-option-icon wa">
+                <svg viewBox="0 0 24 24"><defs><linearGradient id="wag-cta" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1c1410"/><stop offset="100%" stop-color="#0d1f3c"/></linearGradient></defs><path fill="url(#wag-cta)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              </div>
+              <div class="contact-option-text">
+                <strong>Per WhatsApp schreiben</strong>
+                <span>Schnellste Antwort · 089 85635744</span>
+              </div>
+              <div class="contact-option-arrow">→</div>
+            </a>
+
+            <a href="tel:08985635744" class="contact-option">
+              <div class="contact-option-icon phone">
+                <svg viewBox="0 0 24 24"><defs><linearGradient id="phg-cta" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1c1410"/><stop offset="100%" stop-color="#0d1f3c"/></linearGradient></defs><path fill="url(#phg-cta)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="contact-option-text">
+                <strong>Direkt anrufen</strong>
+                <span>089 85635744 · Mo – Fr, 09:00 – 16:00 Uhr</span>
+              </div>
+              <div class="contact-option-arrow">→</div>
+            </a>
+          </div>
+
+          <div class="contact-steps">
+            <h4>So läuft es ab</h4>
+            <div class="contact-step">
+              <div class="contact-step-num">1</div>
+              <div class="contact-step-text">Sie schreiben eine kurze WhatsApp oder rufen an – keine Vorbereitung nötig.</div>
+            </div>
+            <div class="contact-step">
+              <div class="contact-step-num">2</div>
+              <div class="contact-step-text">Ich melde mich persönlich mit zwei bis drei Terminvorschlägen – telefonisch oder vor Ort.</div>
+            </div>
+            <div class="contact-step">
+              <div class="contact-step-num">3</div>
+              <div class="contact-step-text">Wir sprechen in Ruhe über Ihre Situation. Der Ersttermin ist kostenlos und unverbindlich.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <h3>Direktkontakt</h3>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div>
+              <div class="contact-label">Telefon</div>
+              <div class="contact-value"><a href="tel:08985635744">089 85635744</a></div>
+              <div class="contact-note">Mo – Fr · 09:00 – 16:00 Uhr</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div>
+              <div class="contact-label">E-Mail</div>
+              <div class="contact-value"><a href="mailto:info@schuldnerberatung-richter.de">info@schuldnerberatung-richter.de</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div>
+              <div class="contact-label">Adresse</div>
+              <div class="contact-value">Eduard-Schmid-Straße 34<br>81541 München</div>
+            </div>
+          </div>
+          <p class="sidebar-note">Die Erstberatung ist kostenlos und unverbindlich. Ich antworte persönlich – diskret und schnell.</p>
+        </div>
+
+        <div class="sidebar-trust">
+          <h4>Warum Tino Richter?</h4>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Staatlich anerkannt § 305 InsO</span></div>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Seit 2012 in München</span></div>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>1.163 Bewertungen · 5,0 Sterne</span></div>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Persönliche Betreuung</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <p class="foot-copy">© 2026 Tino Richter · Schuldnerberatung München</p>
+    <div class="foot-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    
+      <span style="color:rgba(255,255,255,.12);font-size:.72rem;">·</span>
+  <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="color:rgba(255,255,255,.25);font-size:.72rem;">Webseite von</span><a href="#" onclick="window.open('https://wa.me/4917643433973?text=Hallo%20Alexander%2C%20ich%20habe%20Interesse%20an%20einer%20Websiteerstellung%20f%C3%BCr%20','_blank');return false;" style="color:rgba(255,255,255,.25);font-size:.72rem;display:inline-flex;align-items:center;gap:.3rem;"><svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:rgba(255,255,255,.25);flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Alexander Mäding</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="wa-grad-tb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1c1410"/><stop offset="100%" stop-color="#0d1f3c"/></linearGradient></defs>
+    <path fill="url(#wa-grad-tb)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Set today's date
+  const today = new Date();
+  document.getElementById('todayDate').textContent = today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  let currentStep = 1;
+
+  function goStep(n) {
+    // Basic validation for step 1
+    if (n === 2 && currentStep === 1) {
+      const vorname = document.getElementById('vorname').value.trim();
+      const nachname = document.getElementById('nachname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefon = document.getElementById('telefon').value.trim();
+      if (!vorname || !nachname || !email || !telefon) {
+        alert('Bitte füllen Sie alle Pflichtfelder aus (Vorname, Nachname, E-Mail, Telefon).');
+        return;
+      }
+    }
+
+    // Hide current
+    document.getElementById('step' + currentStep).classList.remove('active');
+
+    // Update indicators
+    const dotPrev = document.getElementById('dot' + currentStep);
+    dotPrev.classList.remove('active');
+    if (n > currentStep) {
+      dotPrev.classList.add('done');
+      dotPrev.innerHTML = '✓';
+    } else {
+      dotPrev.classList.remove('done');
+      dotPrev.classList.add('pending');
+      dotPrev.innerHTML = currentStep;
+    }
+
+    // Update lines
+    for (let i = 1; i <= 2; i++) {
+      const line = document.getElementById('line' + i);
+      if (i < n) { line.classList.add('done'); }
+      else { line.classList.remove('done'); }
+    }
+
+    currentStep = n;
+
+    // Show new step
+    document.getElementById('step' + currentStep).classList.add('active');
+    const dotNew = document.getElementById('dot' + currentStep);
+    dotNew.classList.remove('pending', 'done');
+    dotNew.classList.add('active');
+    dotNew.innerHTML = currentStep;
+
+    const lblNew = document.getElementById('lbl' + currentStep);
+    document.querySelectorAll('.step-dot-label').forEach(l => l.classList.remove('active'));
+    lblNew.classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Radio custom styling
+  document.querySelectorAll('.radio-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const radio = item.querySelector('input[type="radio"]');
+      radio.checked = true;
+    });
+  });
+
+  // Nav
+  function toggleMenu() { document.getElementById('mob-menu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mob-menu').classList.remove('open'); }
+  document.addEventListener('click', e => {
+    const menu = document.getElementById('mob-menu');
+    const nav = document.getElementById('nav');
+    if (menu.classList.contains('open') && !nav.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('open');
+  });
+</script>
+</body>
+</html>
