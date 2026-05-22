@@ -113,7 +113,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#leistungen-start">Leistungen</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
       <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -122,7 +122,7 @@
 </nav>
 <div class="mob-menu" id="mob">
   <a href="index.html#nicht-allein">Warum zu mir?</a>
-  <a href="index.html#leistungen">Leistungen</a>
+  <a href="index.html#leistungen-start">Leistungen</a>
   <a href="index.html#kontakt">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
 </div>
@@ -249,6 +249,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>

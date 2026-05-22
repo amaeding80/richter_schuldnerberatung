@@ -212,8 +212,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="leistungen.html#leistungen-start">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
       <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -223,8 +223,8 @@
 
 <div class="mob-menu" id="mob-menu">
   <a href="index.html" onclick="closeMenu()">Startseite</a>
-  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
-  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="leistungen.html#leistungen-start" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html#content" onclick="closeMenu()">Privatinsolvenz</a>
   <a href="pfaendung.html" onclick="closeMenu()">Pfändung – was jetzt</a>
   <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary" onclick="closeMenu()">Termin buchen</a>
@@ -455,6 +455,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>

@@ -142,8 +142,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="leistungen.html" class="active">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="#leistungen-start" class="active">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
       <li><a href="https://www.schuldnerberatung-richter.de/pfaendungsrechner/" target="_blank" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -154,8 +154,8 @@
 <div class="mob-menu" id="mob-menu">
   <a href="index.html" onclick="closeMenu()">Startseite</a>
   <a href="index.html#nicht-allein" onclick="closeMenu()">Warum zu mir?</a>
-  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
-  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="leistungen.html#leistungen-start" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html#content" onclick="closeMenu()">Privatinsolvenz</a>
   <a href="pfaendung.html" onclick="closeMenu()">Pfändung – was jetzt</a>
   <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary">Kostenloser Ersttermin</a>
@@ -192,7 +192,7 @@
       <h2 class="sec-h">Was ich für Sie übernehme.</h2>
       <p class="sec-sub">Bei einem kostenlosen Erstgespräch finden wir gemeinsam heraus, welche Form der Entschuldung für Sie die richtige ist – und ich begleite Sie von dort bis zur Schuldenfreiheit.</p>
     </div>
-    <div class="leist-grid">
+    <div class="leist-grid" id="leistungen-start">
       <div class="leist-card">
         <div class="leist-num">01</div>
         <div class="leist-body">
@@ -214,7 +214,7 @@
         <div class="leist-body">
           <h3>Privatinsolvenz &amp; Restschuldbefreiung</h3>
           <p>Scheitert die außergerichtliche Einigung, stehe ich Ihnen beim Insolvenzantrag zur Seite – von der Antragstellung bis zur Restschuldbefreiung. Auch dann begleite ich Sie persönlich.</p>
-          <a href="privatinsolvenz.html" class="leist-link">Mehr erfahren →</a>
+          <a href="privatinsolvenz.html#content" class="leist-link">Mehr erfahren →</a>
         </div>
       </div>
       <div class="leist-card">
@@ -310,6 +310,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>

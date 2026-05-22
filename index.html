@@ -351,7 +351,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#leistungen-start">Leistungen</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -361,7 +361,7 @@
 
 <div class="mob-menu" id="mob-menu">
   <a href="#nicht-allein" onclick="closeMenu('#nicht-allein');return false;">Warum zu mir?</a>
-  <a href="#leistungen" onclick="closeMenu('#leistungen');return false;">Leistungen</a>
+  <a href="#leistungen-start" onclick="closeMenu('#leistungen');return false;">Leistungen</a>
   <a href="#bewertungen" onclick="closeMenu('#bewertungen');return false;">Bewertungen</a>
   <a href="#kontakt" onclick="closeMenu('#kontakt');return false;">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary">Kostenloser Ersttermin</a>
@@ -469,10 +469,10 @@
       <h2 class="sec-h">Ich mach das. Sie atmen durch.</h2>
       <p class="sec-sub">Von der ersten Bestandsaufnahme bis zur Schuldenfreiheit – ich übernehme den Gläubigerkontakt, den Schriftverkehr und die Verhandlungen. Sämtlich. Vollständig. Persönlich.</p>
     </div>
-    <div class="leist-grid">
+    <div class="leist-grid" id="leistungen-start">
       <div class="leist-card"><div class="leist-num">01</div><div class="leist-body"><h3>Kostenlose Erstberatung & Überblick</h3><p>Im ersten Gespräch schaffe ich mir gemeinsam mit Ihnen einen Überblick – alle Schulden, alle Gläubiger, alle Optionen. Ich sage Ihnen direkt, was ich für Sie tun kann. Ohne Kosten, ohne Verpflichtung.</p><a href="schuldnerberater.html" class="leist-link">Mehr erfahren →</a></div></div>
       <div class="leist-card"><div class="leist-num">02</div><div class="leist-body"><h3>Außergerichtliche Einigung</h3><p>Ich strebe zunächst Einigungen mit Ihren Gläubigern ohne Gerichtsverfahren an. Ich übernehme sämtlichen Schriftverkehr und verhandle wirtschaftlich sinnvolle Tilgungspläne für Sie.</p><a href="aussergerichtlich.html" class="leist-link">Mehr erfahren →</a></div></div>
-      <div class="leist-card"><div class="leist-num">03</div><div class="leist-body"><h3>Privatinsolvenz & Restschuldbefreiung</h3><p>Scheitert die außergerichtliche Einigung, stehe ich Ihnen auch beim Insolvenzantrag zur Seite – von der Antragstellung bis zur Restschuldbefreiung. Auch dann begleite ich Sie persönlich.</p><a href="privatinsolvenz.html" class="leist-link">Mehr erfahren →</a></div></div>
+      <div class="leist-card"><div class="leist-num">03</div><div class="leist-body"><h3>Privatinsolvenz & Restschuldbefreiung</h3><p>Scheitert die außergerichtliche Einigung, stehe ich Ihnen auch beim Insolvenzantrag zur Seite – von der Antragstellung bis zur Restschuldbefreiung. Auch dann begleite ich Sie persönlich.</p><a href="privatinsolvenz.html#content" class="leist-link">Mehr erfahren →</a></div></div>
       <div class="leist-card"><div class="leist-num">04</div><div class="leist-body"><h3>P-Konto Bescheinigung</h3><p>Ich stelle Ihnen die P-Konto-Bescheinigung aus, damit Sie weiter auf Ihr Existenzminimum zugreifen können. Als staatlich anerkannte Stelle bin ich dazu berechtigt.</p><a href="p-konto.html" class="leist-link">Mehr erfahren →</a></div></div>
       <div class="leist-card"><div class="leist-num">05</div><div class="leist-body"><h3>Schuldnerberatung für Selbstständige</h3><p>Auch Selbstständige und kleine Unternehmen geraten in Schuldenfallen. Ich kenne die speziellen rechtlichen Regeln und helfe Ihnen, Ihren Betrieb zu retten oder geordnet abzuwickeln.</p><a href="unternehmen.html" class="leist-link">Mehr erfahren →</a></div></div>
       <div class="leist-card"><div class="leist-num">06</div><div class="leist-body"><h3>Pfändungsschutz & Notfallhilfe</h3><p>Gerichtsvollzieher vor der Tür, Konto gesperrt, Lohn gepfändet? Das sind Notfallsituationen – und genau dafür bin ich da. Ich helfe sofort, unkompliziert und direkt. Kein Warten.</p><a href="pfaendung.html" class="leist-link">Mehr erfahren →</a></div></div>
@@ -590,6 +590,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>

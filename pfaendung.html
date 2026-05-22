@@ -145,8 +145,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Startseite</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="leistungen.html#leistungen-start">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
       <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -156,8 +156,8 @@
 
 <div class="mob-menu" id="mob-menu">
   <a href="index.html" onclick="closeMenu()">Startseite</a>
-  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
-  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="leistungen.html#leistungen-start" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html#content" onclick="closeMenu()">Privatinsolvenz</a>
   <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
 </div>
@@ -234,9 +234,9 @@
         </div>
         <div class="sidebar-links">
           <h4>Weitere Themen</h4>
-          <a href="leistungen.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Alle Leistungen</a>
+          <a href="leistungen.html#leistungen-start"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Alle Leistungen</a>
           <a href="p-konto.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>P-Konto Bescheinigung</a>
-          <a href="privatinsolvenz.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Privatinsolvenz</a>
+          <a href="privatinsolvenz.html#content"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Privatinsolvenz</a>
           <a href="pfaendungsrechner.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Pfändungsrechner</a>
         </div>
       </div>
@@ -309,6 +309,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>

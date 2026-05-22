@@ -170,8 +170,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html">Privatinsolvenz</a></li>
+      <li><a href="leistungen.html#leistungen-start">Leistungen</a></li>
+      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
       <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
@@ -181,8 +181,8 @@
 
 <div class="mob-menu" id="mob-menu">
   <a href="index.html" onclick="closeMenu()">Startseite</a>
-  <a href="leistungen.html" onclick="closeMenu()">Leistungen</a>
-  <a href="privatinsolvenz.html" onclick="closeMenu()">Privatinsolvenz</a>
+  <a href="leistungen.html#leistungen-start" onclick="closeMenu()">Leistungen</a>
+  <a href="privatinsolvenz.html#content" onclick="closeMenu()">Privatinsolvenz</a>
   <a href="pfaendung.html" onclick="closeMenu()">Pfändung – was jetzt</a>
   <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
@@ -282,10 +282,15 @@
         <h2>Warum lohnt sich der Einigungsversuch?</h2>
         <p>Viele Mandanten fragen sich, ob sich der außergerichtliche Einigungsversuch lohnt, wenn ohnehin die Privatinsolvenz angestrebt wird. Die Antwort ist eindeutig: Ja – und zwar aus mehreren Gründen.</p>
 
+        <div class="highlight-box" style="background:rgba(196,160,106,.08);border-color:rgba(196,160,106,.3);margin-bottom:1.25rem;">
+          <h4 style="color:var(--amber);margin-top:0;">Gläubiger verzichten auf 70–80 % ihrer Forderung</h4>
+          <p style="margin-bottom:0;">Bei einem erfolgreichen außergerichtlichen Schuldenvergleich verzichten Gläubiger in der Regel auf <strong>70 bis 80 Prozent</strong> ihrer ursprünglichen Forderung. Zum Vergleich: Bei einem Insolvenzverfahren erhalten Gläubiger statistisch nur rund <strong>5 Prozent</strong> zurück. Das macht einen Vergleich für beide Seiten attraktiv – Gläubiger bekommen mehr als bei der Insolvenz, Sie sind schneller schuldenfrei.</p>
+        </div>
+
         <div class="highlight-box">
-          <h4>Vorteile des außergerichtlichen Einigungsversuchs</h4>
+          <h4>Weitere Vorteile des außergerichtlichen Einigungsversuchs</h4>
           <ul>
-            <li><strong>Schneller:</strong> Bei Erfolg sind Schulden oft innerhalb weniger Monate bereinigt – statt 3 Jahre Insolvenz.</li>
+            <li><strong>Schneller:</strong> Bei Erfolg sind Schulden oft innerhalb weniger Wochen oder Monate bereinigt – statt 3 Jahre Insolvenz.</li>
             <li><strong>Günstiger:</strong> Kein Insolvenzgericht, keine Treuhändergebühren, keine Verfahrenskosten.</li>
             <li><strong>Diskreter:</strong> Keine Eintragung im Insolvenzregister, keine öffentliche Bekanntmachung.</li>
             <li><strong>Gesetzlich vorgeschrieben:</strong> Ohne diesen Schritt ist die Privatinsolvenz nicht möglich.</li>
@@ -348,9 +353,9 @@
         </div>
         <div class="sidebar-links">
           <h4>Weitere Themen</h4>
-          <a href="privatinsolvenz.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Privatinsolvenz</a>
+          <a href="privatinsolvenz.html#content"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Privatinsolvenz</a>
           <a href="insolvenz.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Insolvenz anmelden</a>
-          <a href="leistungen.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Alle Leistungen</a>
+          <a href="leistungen.html#leistungen-start"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Alle Leistungen</a>
           <a href="schulden-loswerden.html"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Schulden loswerden</a>
         </div>
       </div>
@@ -423,6 +428,22 @@
     }, { threshold: 0.05 });
     obs.observe(footerEl);
   }
+</script>
+<script>
+(function(){
+  if(!window.location.hash) return;
+  var id = window.location.hash.slice(1);
+  function scrollToHash(){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var navH = (document.querySelector('nav') || {offsetHeight:64}).offsetHeight || 64;
+    var top = el.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+    window.scrollTo({top: Math.max(0, top), behavior: 'auto'});
+  }
+  // Run after full render
+  if(document.readyState === 'complete') { setTimeout(scrollToHash, 80); }
+  else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
+})();
 </script>
 </body>
 </html>
