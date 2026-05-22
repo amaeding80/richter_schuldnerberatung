@@ -443,15 +443,24 @@
 
 /* === responsive === */
 @media (max-width: 600px) {
-  .trcb-header { padding: 1.25rem 1.25rem 0; }
-  .trcb-intro  { padding: .85rem 1.25rem 0; }
-  .trcb-quick  { padding: .85rem 1.25rem; }
-  .trcb-toggle-details { padding: .4rem 1.25rem .6rem; }
-  .trcb-divider { margin: 0 1.25rem; }
-  .trcb-details { padding: 0 1.25rem; }
-  .trcb-footer  { padding: 1rem 1.25rem 1.5rem; }
-  .trcb-btn { min-width: 0; padding: .65rem 1rem; font-size: .82rem; }
-  #tr-cb-bar { padding: .6rem 1rem; font-size: .73rem; }
+  #tr-cb-panel { font-size: 12px; max-height: 80dvh; border-radius: 14px 14px 0 0; }
+  .trcb-header { padding: .65rem .85rem 0; }
+  .trcb-logo-mark { width: 20px; height: 20px; border-radius: 4px; }
+  .trcb-logo-mark svg { width: 10px; height: 10px; }
+  .trcb-logo-name { font-size: .7rem; }
+  .trcb-logo-name span { font-size: .58rem; }
+  .trcb-close { width: 26px; height: 26px; }
+  .trcb-close svg { width: 10px; height: 10px; }
+  .trcb-intro  { padding: .45rem .85rem 0; }
+  .trcb-intro h2 { font-size: .88rem; margin-bottom: .2rem; }
+  .trcb-intro p { font-size: .73rem; line-height: 1.5; margin-bottom: .3rem; }
+  .trcb-quick  { padding: .5rem .85rem; flex-direction: column; gap: .35rem; }
+  .trcb-btn { min-width: 0; width: 100%; justify-content: center; padding: .5rem .85rem; font-size: .75rem; border-radius: 6px; }
+  .trcb-toggle-details { padding: .2rem .85rem .4rem; font-size: .72rem; }
+  .trcb-divider { margin: 0 .85rem; }
+  .trcb-details { padding: 0 .85rem; }
+  .trcb-footer  { padding: .55rem .85rem 1rem; font-size: .68rem; }
+  #tr-cb-bar { padding: .5rem .85rem; font-size: .7rem; }
 }
     `;
     document.head.appendChild(s);
