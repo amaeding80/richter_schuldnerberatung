@@ -512,7 +512,7 @@
     var link=e.target.closest('a');
     if(!link)return;
     var href=link.getAttribute('href')||'';
-    if(href.indexOf('wa.me/message/Z6VKT3Z65OFEH1')===-1)return;
+    if(href.indexOf('wa.me/message/Z6VKT3Z65OFEH1')===-1&&href.indexOf('wa.me/4908985635744')===-1)return;
     if(!isOpenNow()){e.preventDefault();showClosedModal();}
   });
 })();
@@ -547,18 +547,18 @@
   function badgeHTML(info,mode){
     if(info.isOpen){
       var tc=mode==='mob'?'#4ade80':'#16a34a';
-      var lbl=mode==='nav'?'Geöffnet':'Jetzt geöffnet · bis 16:00 Uhr';
+      var lbl=mode==='nav'?'Geöffnet · 09–16 Uhr':'Jetzt geöffnet · bis 16:00 Uhr';
       return '<span style="display:inline-flex;align-items:center;gap:.38rem;font-size:.76rem;font-weight:600;color:'+tc+';">'
         +'<span style="width:7px;height:7px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:oa-pulse 2s infinite;"></span>'+lbl+'</span>';
     } else {
       var tc2=mode==='mob'?'rgba(255,255,255,.42)':'#94a3b8';
       var lbl2;
       if(info.isHoliday){
-        lbl2=mode==='nav'?'Feiertag':'Heute Feiertag · Mo–Fr 09–16 Uhr';
+        lbl2=mode==='nav'?'Feiertag · Mo–Fr 09–16':'Heute Feiertag · Mo–Fr 09–16 Uhr';
       } else if(info.isWeekend){
-        lbl2=mode==='nav'?'Wochenende':'Wochenende · Mo–Fr 09–16 Uhr';
+        lbl2=mode==='nav'?'Wochenende · Mo–Fr 09–16':'Wochenende · Mo–Fr 09–16 Uhr';
       } else {
-        lbl2=mode==='nav'?'Geschlossen':'Heute geschlossen · Mo–Fr 09–16 Uhr';
+        lbl2=mode==='nav'?'Geschlossen · Mo–Fr 09–16':'Heute geschlossen · Mo–Fr 09–16 Uhr';
       }
       return '<span style="display:inline-flex;align-items:center;gap:.38rem;font-size:.76rem;font-weight:600;color:'+tc2+';">'
         +'<span style="width:7px;height:7px;background:'+tc2+';border-radius:50%;flex-shrink:0;opacity:.6;"></span>'+lbl2+'</span>';
