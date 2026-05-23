@@ -380,5 +380,143 @@
   else { window.addEventListener('load', function(){ setTimeout(scrollToHash, 80); }); }
 })();
 </script>
+
+<script>
+/* WhatsApp Öffnungszeiten-Check */
+(function(){
+  function getEaster(y){
+    var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,
+        f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+        h=(19*a+b-d-g+15)%30,ii=Math.floor(c/4),k=c%4,
+        l=(32+2*e+2*ii-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+        mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;
+    return new Date(y,mo-1,da);
+  }
+  function isHoliday(d){
+    var y=d.getFullYear(),mo=d.getMonth()+1,da=d.getDate();
+    var fixed=[[1,1],[1,6],[5,1],[8,15],[10,3],[11,1],[12,25],[12,26]];
+    for(var i=0;i<fixed.length;i++) if(fixed[i][0]===mo&&fixed[i][1]===da) return true;
+    var e=getEaster(y),diff=Math.round((new Date(y,mo-1,da).getTime()-e.getTime())/86400000);
+    return diff===-2||diff===1||diff===39||diff===49||diff===60;
+  }
+  function isOpenNow(){
+    var now=new Date(),b=new Date(now.toLocaleString('en-US',{timeZone:'Europe/Berlin'}));
+    if(isHoliday(b)) return false;
+    var day=b.getDay(),mins=b.getHours()*60+b.getMinutes();
+    return day>=1&&day<=5&&mins>=540&&mins<960;
+  }
+  function showClosedModal(){
+    if(document.getElementById('wa-closed-overlay')) return;
+    var overlay=document.createElement('div');
+    overlay.id='wa-closed-overlay';
+    overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;';
+    overlay.innerHTML=
+      '<div style="background:#0d1f3c;border-radius:1rem;padding:2.25rem 2rem;max-width:380px;width:100%;text-align:center;border:1px solid rgba(196,160,106,.2);">'
+      +'<div style="width:54px;height:54px;background:rgba(196,160,106,.12);border:1px solid rgba(196,160,106,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">'
+      +'<svg viewBox="0 0 24 24" style="width:26px;height:26px;fill:#c4a06a"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>'
+      +'</div>'
+      +'<h3 style="margin:0 0 .6rem;font-size:1.1rem;color:#fff;font-family:inherit;font-weight:700;">Außerhalb der Sprechzeiten</h3>'
+      +'<p style="margin:0 0 1.75rem;color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7;">Sie schreiben mir gerade außerhalb meiner Sprechzeiten.<br><br>Ich bin gerne persönlich für Sie da &ndash; <span style="color:#c4a06a;font-weight:600;">Mo &ndash; Fr &nbsp;·&nbsp; 09:00 &ndash; 16:00 Uhr</span></p>'
+      +'<button id="wa-modal-close" style="background:#c4a06a;color:#fff;border:none;padding:.7rem 2rem;border-radius:.5rem;cursor:pointer;font-size:.9rem;font-family:inherit;font-weight:700;width:100%;">Verstanden</button>'
+      +'</div>';
+    document.body.appendChild(overlay);
+    document.getElementById('wa-modal-close').addEventListener('click',function(){overlay.remove();});
+    overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.remove();});
+  }
+  document.addEventListener('click',function(e){
+    var link=e.target.closest('a');
+    if(!link)return;
+    var href=link.getAttribute('href')||'';
+    if(href.indexOf('wa.me/message/Z6VKT3Z65OFEH1')===-1)return;
+    if(!isOpenNow()){e.preventDefault();showClosedModal();}
+  });
+})();
+</script>
+
+
+<script>
+/* Öffnungszeiten-Badge */
+(function(){
+  function getEaster(y){
+    var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,
+        f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+        h=(19*a+b-d-g+15)%30,ii=Math.floor(c/4),k=c%4,
+        l=(32+2*e+2*ii-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+        mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;
+    return new Date(y,mo-1,da);
+  }
+  function isHoliday(d){
+    var y=d.getFullYear(),mo=d.getMonth()+1,da=d.getDate();
+    var fixed=[[1,1],[1,6],[5,1],[8,15],[10,3],[11,1],[12,25],[12,26]];
+    for(var i=0;i<fixed.length;i++) if(fixed[i][0]===mo&&fixed[i][1]===da) return true;
+    var e=getEaster(y),diff=Math.round((new Date(y,mo-1,da).getTime()-e.getTime())/86400000);
+    return diff===-2||diff===1||diff===39||diff===49||diff===60;
+  }
+  function getBerlinInfo(){
+    var now=new Date(),b=new Date(now.toLocaleString('en-US',{timeZone:'Europe/Berlin'}));
+    var day=b.getDay(),mins=b.getHours()*60+b.getMinutes();
+    var holiday=isHoliday(b);
+    return{isOpen:!holiday&&day>=1&&day<=5&&mins>=540&&mins<960,
+           isWeekend:day===0||day===6,isHoliday:holiday};
+  }
+  function badgeHTML(info,mode){
+    if(info.isOpen){
+      var tc=mode==='mob'?'#4ade80':'#16a34a';
+      var lbl=mode==='nav'?'Geöffnet':'Jetzt geöffnet · bis 16:00 Uhr';
+      return '<span style="display:inline-flex;align-items:center;gap:.38rem;font-size:.76rem;font-weight:600;color:'+tc+';">'
+        +'<span style="width:7px;height:7px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:oa-pulse 2s infinite;"></span>'+lbl+'</span>';
+    } else {
+      var tc2=mode==='mob'?'rgba(255,255,255,.42)':'#94a3b8';
+      var lbl2;
+      if(info.isHoliday){
+        lbl2=mode==='nav'?'Feiertag':'Heute Feiertag · Mo–Fr 09–16 Uhr';
+      } else if(info.isWeekend){
+        lbl2=mode==='nav'?'Wochenende':'Wochenende · Mo–Fr 09–16 Uhr';
+      } else {
+        lbl2=mode==='nav'?'Geschlossen':'Heute geschlossen · Mo–Fr 09–16 Uhr';
+      }
+      return '<span style="display:inline-flex;align-items:center;gap:.38rem;font-size:.76rem;font-weight:600;color:'+tc2+';">'
+        +'<span style="width:7px;height:7px;background:'+tc2+';border-radius:50%;flex-shrink:0;opacity:.6;"></span>'+lbl2+'</span>';
+    }
+  }
+  function update(){
+    var info=getBerlinInfo();
+    ['nav','mob','contact'].forEach(function(k){
+      var el=document.getElementById('oa-'+k);
+      if(el) el.innerHTML=badgeHTML(info,k==='contact'?'long':k);
+    });
+  }
+  function inject(){
+    var nl=document.querySelector('.nav-links');
+    if(nl&&!document.getElementById('oa-nav')){
+      var li=document.createElement('li');
+      li.id='oa-nav';li.style.cssText='list-style:none;display:flex;align-items:center;padding-left:.5rem;';
+      nl.appendChild(li);
+    }
+    var mob=document.getElementById('mob-menu');
+    if(mob&&!document.getElementById('oa-mob')){
+      var d=document.createElement('div');
+      d.id='oa-mob';d.style.cssText='padding:.5rem 0 .65rem;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:.1rem;';
+      mob.insertBefore(d,mob.firstChild);
+    }
+    document.querySelectorAll('.k-note').forEach(function(kn){
+      if(kn.textContent.indexOf('09:00')!==-1&&!document.getElementById('oa-contact')){
+        var s=document.createElement('span');
+        s.id='oa-contact';s.style.cssText='display:block;margin-top:.3rem;';
+        kn.parentNode.appendChild(s);
+      }
+    });
+    update();
+  }
+  if(!document.getElementById('oa-style')){
+    var s=document.createElement('style');s.id='oa-style';
+    s.textContent='@keyframes oa-pulse{0%,100%{box-shadow:0 0 0 2px rgba(34,197,94,.25)}50%{box-shadow:0 0 0 4px rgba(34,197,94,.1)}}';
+    document.head.appendChild(s);
+  }
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',inject):inject();
+  setInterval(update,60000);
+})();
+</script>
+
 </body>
 </html>
