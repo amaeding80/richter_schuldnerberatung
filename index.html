@@ -622,7 +622,7 @@
     var fixed=[[1,1],[1,6],[5,1],[8,15],[10,3],[11,1],[12,25],[12,26]];
     for(var i=0;i<fixed.length;i++) if(fixed[i][0]===mo&&fixed[i][1]===da) return true;
     var e=getEaster(y),diff=Math.round((new Date(y,mo-1,da).getTime()-e.getTime())/86400000);
-    return diff===-2||diff===1||diff===39||diff===49||diff===60;
+    return diff===-2||diff===1||diff===39||diff===50||diff===60;
   }
   function isOpenNow(){
     var now=new Date(),b=new Date(now.toLocaleString('en-US',{timeZone:'Europe/Berlin'}));
@@ -675,7 +675,7 @@
     var fixed=[[1,1],[1,6],[5,1],[8,15],[10,3],[11,1],[12,25],[12,26]];
     for(var i=0;i<fixed.length;i++) if(fixed[i][0]===mo&&fixed[i][1]===da) return true;
     var e=getEaster(y),diff=Math.round((new Date(y,mo-1,da).getTime()-e.getTime())/86400000);
-    return diff===-2||diff===1||diff===39||diff===49||diff===60;
+    return diff===-2||diff===1||diff===39||diff===50||diff===60;
   }
   function getBerlinInfo(){
     var now=new Date(),b=new Date(now.toLocaleString('en-US',{timeZone:'Europe/Berlin'}));
