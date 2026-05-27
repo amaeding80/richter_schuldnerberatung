@@ -162,18 +162,18 @@
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="index.html" class="nav-logo">
+    <a onclick="location.href='index.html'" style="cursor:pointer;" class="nav-logo">
       <div class="nav-logo-mark">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
       </div>
       <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="leistungen.html#leistungen-start">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+      <li><a onclick="location.href='index.html'" style="cursor:pointer;">Startseite</a></li>
+      <li><a onclick="location.href='leistungen.html#leistungen-start'" style="cursor:pointer;">Leistungen</a></li>
+      <li><a onclick="location.href='privatinsolvenz.html#content'" style="cursor:pointer;">Privatinsolvenz</a></li>
+      <li><a onclick="location.href='index.html#kontakt'" style="cursor:pointer;">Kontakt</a></li>
+      <li><a onclick="location.href='pfaendungsrechner.html'" style="cursor:pointer;" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
     <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
   </div>
@@ -189,7 +189,7 @@
 <div class="page-hero">
   <div class="container">
     <div class="page-breadcrumb">
-      <a href="index.html">Startseite</a>
+      <a onclick="location.href='index.html'" style="cursor:pointer;">Startseite</a>
       <span>›</span>
       <span class="current">Ihr Schuldnerberater</span>
     </div>
@@ -197,7 +197,7 @@
     <h1>Ihr Schuldnerberater <em>in München.</em></h1>
     <p>Vom Inkassomitarbeiter zum Anwalt der Schuldner – Tino Richter kennt beide Seiten. <strong>Seit 2012 staatlich anerkannt, tausende Kunden erfolgreich begleitet.</strong> Empathisch, direkt, ohne Wartezeit.</p>
     <div class="page-hero-actions">
-      <a href="terminbuchung.html" class="btn btn-primary">Termin buchen</a>
+      <a onclick="location.href='terminbuchung.html'" style="cursor:pointer;" class="btn btn-primary">Termin buchen</a>
     </div>
   </div>
 </div>
@@ -295,7 +295,7 @@
       <div class="pe-content">
         <h3>1.163 Bewertungen auf ProvenExpert – durchgehend 5,0 Sterne</h3>
         <p>Tino Richter gehört zu den am besten bewerteten Schuldnerberatern in München. Tausende zufriedene Kunden haben ihre Erfahrungen unabhängig und öffentlich dokumentiert.</p>
-        <a href="https://www.provenexpert.com/schuldnerberatung-richter/" target="_blank" rel="noopener" class="pe-link">
+        <a data-u="aHR0cHM6Ly93d3cucHJvdmVuZXhwZXJ0LmNvbS9zY2h1bGRuZXJiZXJhdHVuZy1yaWNodGVyLw==" target="_blank" rel="noopener" class="pe-link">
           Alle Bewertungen auf ProvenExpert ansehen
           <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
         </a>
@@ -313,7 +313,7 @@
         <p>Kostenloser Ersttermin – kein Risiko, keine Verpflichtung. Einfach Termin buchen oder kurz auf WhatsApp schreiben.</p>
       </div>
       <div class="cta-btns">
-        <a href="terminbuchung.html" class="btn btn-primary">Jetzt Ersttermin buchen</a>
+        <a onclick="location.href='terminbuchung.html'" style="cursor:pointer;" class="btn btn-primary">Jetzt Ersttermin buchen</a>
       </div>
     </div>
   </div>
@@ -324,9 +324,9 @@
     <div class="foot-row1">
       <span class="foot-copy">© 2026 Tino Richter</span>
       <span class="foot-sep">·</span>
-      <a href="impressum.html">Impressum</a>
+      <a onclick="location.href='impressum.html'" style="cursor:pointer;">Impressum</a>
       <span class="foot-sep">·</span>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a onclick="location.href='datenschutz.html'" style="cursor:pointer;">Datenschutz</a>
     </div>
     <div class="foot-credit">
       <span>Webseite von</span>
@@ -338,7 +338,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a data-u="aHR0cHM6Ly93YS5tZS9tZXNzYWdlL1o2VktUM1o2NU9GRUgx" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24">
     <defs>
       <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -531,5 +531,11 @@
 })();
 </script>
 
+  <script>
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-u]");
+    if(a){e.preventDefault();window.open(atob(a.getAttribute("data-u")),"_blank","noopener");}
+  });
+  </script>
 </body>
 </html>

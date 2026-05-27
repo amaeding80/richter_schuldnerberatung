@@ -100,18 +100,18 @@
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="index.html" class="nav-logo">
+    <a onclick="location.href='index.html'" style="cursor:pointer;" class="nav-logo">
       <div class="nav-logo-mark">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
       </div>
       <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Startseite</a></li>
-      <li><a href="leistungen.html#leistungen-start">Leistungen</a></li>
-      <li><a href="privatinsolvenz.html#content">Privatinsolvenz</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+      <li><a onclick="location.href='index.html'" style="cursor:pointer;">Startseite</a></li>
+      <li><a onclick="location.href='leistungen.html#leistungen-start'" style="cursor:pointer;">Leistungen</a></li>
+      <li><a onclick="location.href='privatinsolvenz.html#content'" style="cursor:pointer;">Privatinsolvenz</a></li>
+      <li><a onclick="location.href='index.html#kontakt'" style="cursor:pointer;">Kontakt</a></li>
+      <li><a onclick="location.href='pfaendungsrechner.html'" style="cursor:pointer;" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
     <button class="burger" onclick="toggleMenu()" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
   </div>
@@ -127,7 +127,7 @@
 <div class="page-header">
   <div class="container">
     <div class="page-breadcrumb">
-      <a href="index.html">Startseite</a>
+      <a onclick="location.href='index.html'" style="cursor:pointer;">Startseite</a>
       <span>›</span>
       <span class="current">Datenschutzerklärung</span>
     </div>
@@ -285,7 +285,7 @@
         Wenn Sie uns über WhatsApp kontaktieren, verarbeiten wir Ihre mitgeteilten personenbezogenen Daten auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) zum Zweck der Beantwortung Ihrer Anfrage und der Kontaktaufnahme mit Ihnen. Ihre Daten werden nur für diese Zwecke gespeichert und nicht an Dritte weitergegeben.
       </p>
       <p>
-        Weitere Informationen zum Datenschutz bei WhatsApp finden Sie unter: <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener">https://www.whatsapp.com/legal/privacy-policy-eea</a>
+        Weitere Informationen zum Datenschutz bei WhatsApp finden Sie unter: <a data-u="aHR0cHM6Ly93d3cud2hhdHNhcHAuY29tL2xlZ2FsL3ByaXZhY3ktcG9saWN5LWVlYQ==" target="_blank" rel="noopener">https://www.whatsapp.com/legal/privacy-policy-eea</a>
       </p>
 
       <h2>7. Externe Terminbuchung</h2>
@@ -299,7 +299,7 @@
       </p>
       <p>
         Die zuständige Aufsichtsbehörde in Bayern ist der Bayerische Landesbeauftragte für den Datenschutz (BayLfD):<br>
-        <a href="https://www.datenschutz-bayern.de" target="_blank" rel="noopener">www.datenschutz-bayern.de</a>
+        <a data-u="aHR0cHM6Ly93d3cuZGF0ZW5zY2h1dHotYmF5ZXJuLmRl" target="_blank" rel="noopener">www.datenschutz-bayern.de</a>
       </p>
 
     </div>
@@ -311,9 +311,9 @@
     <div class="foot-row1">
       <span class="foot-copy">© 2026 Tino Richter</span>
       <span class="foot-sep">·</span>
-      <a href="impressum.html">Impressum</a>
+      <a onclick="location.href='impressum.html'" style="cursor:pointer;">Impressum</a>
       <span class="foot-sep">·</span>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a onclick="location.href='datenschutz.html'" style="cursor:pointer;">Datenschutz</a>
     </div>
     <div class="foot-credit">
       <span>Webseite von</span>
@@ -325,7 +325,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a data-u="aHR0cHM6Ly93YS5tZS9tZXNzYWdlL1o2VktUM1o2NU9GRUgx" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24">
     <defs>
       <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -518,5 +518,11 @@
 })();
 </script>
 
+  <script>
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-u]");
+    if(a){e.preventDefault();window.open(atob(a.getAttribute("data-u")),"_blank","noopener");}
+  });
+  </script>
 </body>
 </html>

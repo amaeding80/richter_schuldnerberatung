@@ -105,31 +105,31 @@
 
 <nav id="nav">
   <div class="nav-in">
-    <a href="index.html" class="nav-logo">
+    <a onclick="location.href='index.html'" style="cursor:pointer;" class="nav-logo">
       <div class="nav-logo-mark">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
       </div>
       <div class="nav-logo-text">Tino Richter<span>Schuldnerberatung München</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#nicht-allein">Warum zu mir?</a></li>
-      <li><a href="index.html#leistungen-start">Leistungen</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-      <li><a href="pfaendungsrechner.html" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
+      <li><a onclick="location.href='index.html#nicht-allein'" style="cursor:pointer;">Warum zu mir?</a></li>
+      <li><a onclick="location.href='index.html#leistungen-start'" style="cursor:pointer;">Leistungen</a></li>
+      <li><a onclick="location.href='index.html#kontakt'" style="cursor:pointer;">Kontakt</a></li>
+      <li><a onclick="location.href='pfaendungsrechner.html'" style="cursor:pointer;" style="color:var(--amber);font-weight:700;">Pfändungsrechner</a></li>
     </ul>
     <button class="burger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-menu" id="mob">
-  <a href="index.html#nicht-allein">Warum zu mir?</a>
-  <a href="index.html#leistungen-start">Leistungen</a>
-  <a href="index.html#kontakt">Kontakt</a>
+  <a onclick="location.href='index.html#nicht-allein'" style="cursor:pointer;">Warum zu mir?</a>
+  <a onclick="location.href='index.html#leistungen-start'" style="cursor:pointer;">Leistungen</a>
+  <a onclick="location.href='index.html#kontakt'" style="cursor:pointer;">Kontakt</a>
 </div>
 
 <div class="breadcrumb">
   <div class="container">
     <div class="breadcrumb-inner">
-      <a href="index.html">Startseite</a>
+      <a onclick="location.href='index.html'" style="cursor:pointer;">Startseite</a>
       <span>›</span>
       <span>Impressum</span>
     </div>
@@ -157,7 +157,7 @@
   <p>
     Telefon: <a href="tel:+498985635744">089 85635744</a><br>
     E-Mail: <a href="mailto:info@schuldnerberatung-richter.de">info@schuldnerberatung-richter.de</a><br>
-    Website: <a href="https://www.schuldnerberatung-richter.de" target="_blank">www.schuldnerberatung-richter.de</a>
+    Website: <a data-u="aHR0cHM6Ly93d3cuc2NodWxkbmVyYmVyYXR1bmctcmljaHRlci5kZQ==" target="_blank">www.schuldnerberatung-richter.de</a>
   </p>
 
   <h2>Behördliche Zulassung</h2>
@@ -179,7 +179,7 @@
   <h2>Streitschlichtung</h2>
   <p>
     Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>
+    <a data-u="aHR0cHM6Ly9lYy5ldXJvcGEuZXUvY29uc3VtZXJzL29kci8=" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>
   </p>
   <p>
     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
@@ -210,9 +210,9 @@
     <div class="foot-row1">
       <span class="foot-copy">© 2026 Tino Richter</span>
       <span class="foot-sep">·</span>
-      <a href="impressum.html">Impressum</a>
+      <a onclick="location.href='impressum.html'" style="cursor:pointer;">Impressum</a>
       <span class="foot-sep">·</span>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a onclick="location.href='datenschutz.html'" style="cursor:pointer;">Datenschutz</a>
     </div>
     <div class="foot-credit">
       <span>Webseite von</span>
@@ -224,7 +224,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/message/Z6VKT3Z65OFEH1" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a data-u="aHR0cHM6Ly93YS5tZS9tZXNzYWdlL1o2VktUM1o2NU9GRUgx" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24">
     <defs>
       <linearGradient id="wa-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -403,5 +403,11 @@
 })();
 </script>
 
+  <script>
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-u]");
+    if(a){e.preventDefault();window.open(atob(a.getAttribute("data-u")),"_blank","noopener");}
+  });
+  </script>
 </body>
 </html>
